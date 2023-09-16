@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Customer
+    Debtors
 @endsection
 @section('additional_admin_css')
 @endsection
@@ -14,9 +14,9 @@
                 <div class="col-md-12">
                     <div class="card mt-2">
                         <div class="card-header">
-                            <h3 class="card-title">Customer</h3>
+                            <h3 class="card-title">Debtors</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.customer.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add New</a>
+                                <a href="{{ route('debtors.Add') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add New</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -24,41 +24,42 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL.</th>
+                                        <th>SL</th>
                                         <th>Name</th>
-                                        <th>Mobile</th>
-                                        <th>Status</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Company</th>
+                                        <th style="text-align: center;">Image/File</th>
+                                        <th style="text-align: center;">Recovery Date</th>
+                                        <th style="text-align: center;">View</th>
+                                        <th style="text-align: center;">Edit</th>
+                                        <th style="text-align: center;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($customers as $customer)
+                                    @foreach ($results as $result)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $customer->name }}</td>
-                                        <td>
-                                            {{ $customer->mobile }}
-                                        </td>
-                                        <td style="text-align: center;">
-                                            @if ($customer->status == 'active')
-                                                <a href="Javascript:status('{{ route('admin.customer.change-status', ['id' => $customer->id, 'status' => 'inactive']) }}')">
-                                                    <img src="{{ asset('backend/images/yes.gif') }}">
-                                                </a>
-                                            @else
-                                                <a href="Javascript:status('{{ route('admin.customer.change-status', ['id' => $customer->id, 'status' => 'active']) }}')">
-                                                    <img src="{{ asset('backend/images/no.gif') }}">
-                                                </a>
+                                        <td>{{ $result->name }}</td>
+							            <td>{{ $result->company }}</td>
+
+                                        <td style="text-align: center;">@if($result->file)
+                                            <a href="{{ asset($result->path.$result->file) }}" target="_blank">View</a>
                                             @endif
                                         </td>
+                                        <td style="text-align: center;">{{ $result->recovery_date }}</td>
+                                        <td style="text-align: center;">
+                                            <a href="{{ route('debtors.show', ['id' => $result->id]) }}">
+                                                <img src="{{ asset('backend/images/details.gif') }}">
+                                            </a>
+                                        </td>
+
 
                                         <td style="text-align: center;">
-                                            <a href="{{ route('admin.customer.edit', ['id' => $customer->id]) }}">
+                                            <a href="{{ route('debtors.edit', ['id' => $result->id]) }}">
                                                 <img src="{{ asset('backend/images/edit.gif') }}">
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="JavaScript:status('{{ route('admin.customer.destroy', ['id' => $customer->id]) }}')">
+                                            <a href="JavaScript:status('{{ route('debtors.destroy', ['id' => $result->id]) }}')">
                                                 <img src="{{ asset('backend/images/del.gif') }}">
                                             </a>
                                         </td>

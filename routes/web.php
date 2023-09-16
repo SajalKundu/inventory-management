@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DebtorsController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +32,41 @@ Route::group([
     'middleware' => 'auth',
     'prefix' => 'admin',
 ], function(){
+    Route::controller(AdminSliderController::class)->prefix('slider')->name('a_slider.')->group(function () {
+
+        Route::get('/', 'index')->name('index');
+        Route::any('/add', 'Add')->name('Add');
+        Route::post('store', 'store')->name('store');
+        Route::any('/edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('/status/{id}/{value}/{status}', 'sliderStatus')->name('Status');
+
+    });
+    Route::controller(CreditorsController::class)->prefix('creditors')->name('creditors.')->group(function () {
+
+        Route::get('/', 'index')->name('index');
+        Route::get('/add', 'Add')->name('Add');
+        Route::post('store', 'store')->name('store');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('/status/{id}/{value}/{status}', 'sliderStatus')->name('Status');
+
+    });
+
+    Route::controller(DebtorsController::class)->prefix('debtors')->name('debtors.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/add', 'Add')->name('Add');
+        Route::post('store', 'store')->name('store');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('destroy');
+        Route::get('/status/{id}/{value}/{status}', 'sliderStatus')->name('Status');
+
+    });
     Route::controller(CustomerController::class)->prefix('customer')->name('admin.customer.')->group(function(){
         Route::get('/', 'index')->name('index');
         Route::get('create', 'create')->name('create');
