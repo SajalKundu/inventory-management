@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DebtorsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('sub-category-list', [ProductController::class, 'getSubCategoryList'])->name('sub-category-list');
 
 
 Route::group([
@@ -95,5 +98,19 @@ Route::group([
         Route::post('update/{id}', 'update')->name('update');
         Route::get('delete/{id}', 'destroy')->name('destroy');
         Route::get('change-status/{id}/{status}', 'changeStatus')->name('change-status');
+    });
+
+    Route::controller(ProductController::class)->prefix('product')->name('admin.product.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('delete/{id}', 'destroy')->name('destroy');
+        Route::get('change-status/{id}/{status}', 'changeStatus')->name('change-status');
+
+        Route::post('add-stock', 'addStock')->name('add-stock');
+        Route::get('view-stock/{id}', 'viewStock')->name('view-stock');
+        Route::post('stock-report-download', 'stockReportDownload')->name('stock-report-download');
     });
 });
