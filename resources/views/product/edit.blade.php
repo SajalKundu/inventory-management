@@ -77,6 +77,13 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label for="sale_price" class="col-sm-2 col-form-label text-lg-right">Sale Price</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" name="sale_price" class="form-control" id="sale_price" placeholder="Product Sale price" required value="{{ $product->sale_price }}">
+                                    </div>
+                                </div>
+
                                 {{--  <div class="form-group row">
                                     <label for="available_quantity" class="col-sm-2 col-form-label text-lg-right">Quantity</label>
                                     <div class="col-sm-6">

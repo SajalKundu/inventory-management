@@ -40,6 +40,7 @@
                                             <th>SL.</th>
                                             <th>Name</th>
                                             <th>Price</th>
+                                            <th>Sale Price</th>
                                             <th>Quantity</th>
                                             <th>Stock</th>
                                             <th>Status</th>
@@ -53,6 +54,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $product->name }}</td>
                                                 <td>{{ $product->price }}</td>
+                                                <td>{{ $product->sale_price }}</td>
                                                 <td>{{ $product->available_quantity }}</td>
                                                 <td style="text-align: center;">
                                                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal-{{ $product->id }}">

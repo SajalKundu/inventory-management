@@ -15,16 +15,23 @@ class Sale extends Model
         'invoice_id',
         'customer_id',
         'invoice_create_date',
-        'note',
-        'total_amount',
-        'total_sub_amount',
-        'total_paid',
-        'total_due',
-        'discount_amount',
+        'customer_name',
+        'customer_mobile',
+        'customer_address',
+        'grand_total_amount',
+        'advanced_amount',
+        'due_amount',
     ];
 
     public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function saleProducts()
+    {
+        return $this->hasMany(SaleProduct::class);
+    }
+
+
 }

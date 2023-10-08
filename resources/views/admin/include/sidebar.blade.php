@@ -74,6 +74,32 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.sale.index') }}" class="nav-link @if(request()->is('admin/sale*')) active @endif">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Sale
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                           Reports
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.report.sale.index') }}" class="nav-link">
+                                <i class="fas fa-angle-right nav-icon"></i>
+                                <p>Sale</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

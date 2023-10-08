@@ -19,6 +19,7 @@ class Product extends Model
         'image',
         'image_path',
         'price',
+        'sale_price',
         'available_quantity',
         'sold_quantity',
         'status'

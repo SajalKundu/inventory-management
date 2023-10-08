@@ -42,6 +42,7 @@
                                     <label for="category_id" class="col-sm-2 col-form-label text-lg-right">Category</label>
                                     <div class="col-sm-4">
                                         <select name="category_id" id="category_id" class="form-control" required>
+                                            <option value="">Select Category</option>
                                             @foreach($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
@@ -74,6 +75,13 @@
                                     <label for="price" class="col-sm-2 col-form-label text-lg-right">Price</label>
                                     <div class="col-sm-6">
                                         <input type="number" name="price" class="form-control" id="price" placeholder="Product price" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="sale_price" class="col-sm-2 col-form-label text-lg-right">Sale Price</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" name="sale_price" class="form-control" id="sale_price" placeholder="Product Sale price" required>
                                     </div>
                                 </div>
 
@@ -128,6 +136,14 @@
     $(document).ready(function(){
         $('#category_id').change(function(){
             var category_id = $(this).val();
+
+            if(category_id == '' || category_id == null){
+                alert('Please select a category');
+                $('#sub_category_id').html('');
+                return false;
+            }
+
+
             var url = '{{ route("sub-category-list") }}';
             $.ajaxSetup({
                 headers: {

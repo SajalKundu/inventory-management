@@ -31,6 +31,7 @@ class ProductController extends Controller
             'sub_category_id'    => 'required|exists:sub_categories,id',
             'name'               => 'required|string|max:255',
             'price'              => 'required|numeric',
+            'sale_price'         => 'required|numeric',
             'details'            => 'nullable|string',
             'available_quantity' => 'required|numeric',
             'image'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
@@ -47,11 +48,12 @@ class ProductController extends Controller
             $image_name = null;
         }
 
-        $product = new Product();
+        $product                     = new Product();
         $product->category_id        = $request->category_id;
         $product->sub_category_id    = $request->sub_category_id;
         $product->name               = $request->name;
         $product->price              = $request->price;
+        $product->sale_price         = $request->sale_price;
         $product->details            = $request->details;
         $product->available_quantity = $request->available_quantity;
         $product->status             = $request->status;
@@ -86,6 +88,7 @@ class ProductController extends Controller
             'sub_category_id'    => 'required|exists:sub_categories,id',
             'name'               => 'required|string|max:255',
             'price'              => 'required|numeric',
+            'sale_price'         => 'required|numeric',
             'details'            => 'nullable|string',
             // 'available_quantity' => 'required|numeric',
             'image'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
@@ -127,6 +130,7 @@ class ProductController extends Controller
         $product->sub_category_id    = $request->sub_category_id;
         $product->name               = $request->name;
         $product->price              = $request->price;
+        $product->sale_price         = $request->sale_price;
         $product->details            = $request->details;
         // $product->available_quantity = $request->available_quantity;
         $product->status             = $request->status;

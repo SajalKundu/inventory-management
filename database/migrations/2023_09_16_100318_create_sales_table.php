@@ -19,12 +19,12 @@ class CreateSalesTable extends Migration
             $table->integer('invoice_id')->nullable();
             $table->foreignIdFor(Customer::class)->nullable();
             $table->date('invoice_create_date')->nullable();
-            $table->longText('note')->nullable();
-            $table->integer('total_amount')->nullable();
-            $table->integer('total_sub_amount')->nullable();
-            $table->integer('total_paid')->nullable();
-            $table->integer('total_due')->nullable();
-            $table->integer('discount_amount')->nullable();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_mobile')->nullable();
+            $table->longText('customer_address')->nullable();
+            $table->integer('grand_total_amount')->nullable();
+            $table->integer('advanced_amount')->nullable();
+            $table->integer('due_amount')->nullable();
             $table->timestamps();
         });
     }

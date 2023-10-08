@@ -25,6 +25,16 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            @if($errors->any())
+                                @foreach($errors->all() as $error)
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>{{ $error }}</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                @endforeach
+                            @endif
                             <form action="{{ route('admin.customer.update', ['id' => $customer->id]) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">

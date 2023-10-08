@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->string('image_path')->nullable();
             $table->integer('price')->nullable();
+            $table->integer("sale_price")->default(0);
             $table->integer('available_quantity')->nullable();
             $table->integer('sold_quantity')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');

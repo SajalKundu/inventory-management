@@ -36,6 +36,10 @@ class CustomerController extends Controller
         $customer->status  = $request->status;
         $customer->save();
 
+        if(isset($request->from_coming) && $request->from_coming == 'sale'){
+            return redirect()->route('admin.sale.create')->with('msg', 'Customer created successfully.');
+        }
+
         return redirect()->route('admin.customer.index')->with('msg', 'Customer created successfully.');
     }
 

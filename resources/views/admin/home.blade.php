@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <td align=center class="text-custom">
-                        <img src="{{ asset('backend/images/logo.png') }}" alt="EBL WEARABLE" class="img-responsive w-50">
+                        <img src="{{ asset('backend/images/logo.png') }}" alt="Inventory System" class="img-responsive w-50">
                     </td>
 
                 </tr>

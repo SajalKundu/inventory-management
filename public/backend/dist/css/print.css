@@ -1,0 +1,46 @@
+#invoice_print{
+	border: 1px solid black;
+	margin-bottom: 5px;
+}
+
+.logo{
+	padding-top: 5%;
+}
+
+.logo img{
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+}
+
+.company_info{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 20%;
+}
+
+#company_name{
+	font-weight: bolder;
+}
+
+.customers_sign{
+	float: left;
+}
+
+.owners_sign{
+	float: right;
+}
+
+.quote{
+	padding-bottom: 10px;
+}
+
+.print_btn{
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+  	margin-bottom: 10px;	
+}

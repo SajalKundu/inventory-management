@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\Report\SaleReportController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DebtorsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -112,5 +114,29 @@ Route::group([
         Route::post('add-stock', 'addStock')->name('add-stock');
         Route::get('view-stock/{id}', 'viewStock')->name('view-stock');
         Route::post('stock-report-download', 'stockReportDownload')->name('stock-report-download');
+    });
+
+    Route::controller(SaleController::class)->prefix('sale')->name('admin.sale.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('delete/{id}', 'destroy')->name('destroy');
+        Route::get('change-status/{id}/{status}', 'changeStatus')->name('change-status');
+
+        Route::get('show/{id}', 'show')->name('show');
+        Route::get('print/{id}', 'print')->name('print');
+
+        Route::post('customer-detail', [SaleController::class, 'customerDetail'])->name('customer-detail');
+        Route::post('get-product-detail', [SaleController::class, 'productDetail'])->name('get-product-detail');
+    });
+
+    Route::prefix('report')->group(function(){
+        Route::controller(SaleReportController::class)->prefix('sale')->name('admin.report.sale.')->group(function(){
+            Route::get('/', 'index')->name('index');
+            Route::post('sale-report-show', 'saleReportDataShow')->name('sale-report-show');
+            Route::get('sale-report-download/{start_date}/{end_date}', 'saleReportDataDownload')->name('sale-report-download');
+        });
     });
 });
