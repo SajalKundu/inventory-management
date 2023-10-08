@@ -3,9 +3,11 @@
 use App\Http\Controllers\Admin\Report\SaleReportController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DebtorsController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SubCategoryController;
@@ -22,9 +24,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+
 
 Auth::routes();
 
@@ -58,6 +59,18 @@ Route::group([
         Route::post('update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('destroy');
         Route::get('/status/{id}/{value}/{status}', 'sliderStatus')->name('Status');
+
+    });
+
+    Route::prefix('contacts')->name('contacts.')->group(function(){
+
+        Route::controller(ContactUsController::class)->prefix('contact-us')->name('contact-us.')->group(function(){
+
+            Route::get('/', 'index')->name('index');
+            Route::post('update/{id}', 'update')->name('update');
+
+        });
+
 
     });
 

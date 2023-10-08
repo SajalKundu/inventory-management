@@ -74,6 +74,7 @@
                         </p>
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item">
                     <a href="{{ route('admin.sale.index') }}" class="nav-link @if(request()->is('admin/sale*')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
@@ -95,6 +96,19 @@
                             <a href="{{ route('admin.report.sale.index') }}" class="nav-link">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Sale</p>
+=======
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link @if (request()->is('admin/contacts*')) active @endif">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p> Contact</p><i class="fas fa-angle-left right"></i>
+                    </a>
+                    <ul class="nav nav-treeview" >
+                        <li class="nav-item">
+                            <a href="{{ route('contacts.contact-us.index') }}" class="nav-link  @if (request()->is('admin/contacts/contact-us*')) active @endif">
+                                <i class="far fa-address-card nav-icon"></i>
+                                <p>Contact Us</p>
+>>>>>>> d1d35a09f32f0ff280f4a960d1ed482b8656c2e4
                             </a>
                         </li>
 
