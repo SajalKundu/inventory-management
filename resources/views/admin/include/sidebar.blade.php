@@ -74,6 +74,22 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link @if (request()->is('admin/contacts*')) active @endif">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p> Contact</p><i class="fas fa-angle-left right"></i>
+                    </a>
+                    <ul class="nav nav-treeview" >
+                        <li class="nav-item">
+                            <a href="{{ route('contacts.contact-us.index') }}" class="nav-link  @if (request()->is('admin/contacts/contact-us*')) active @endif">
+                                <i class="far fa-address-card nav-icon"></i>
+                                <p>Contact Us</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

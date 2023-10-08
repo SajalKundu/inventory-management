@@ -23,7 +23,7 @@
         <div class="card card-outline card-secondary">
             <div class="card-header text-center">
                 <div class="login-logo" style="background:#FFFFFF ">
-                    <a href=""><img src="{{ asset('backend/images/logo.png') }}"></a>
+                    <a href=""><img src="{{ asset('backend/images/inventory-logo.png') }}"></a>
                     <h2 class="text-custom" style="padding-top:0px; margin-top:10px;"> Inventory System ::  ADMIN</h2>
                 </div>
             </div>

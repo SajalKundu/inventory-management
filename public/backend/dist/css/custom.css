@@ -1,5 +1,13 @@
 .login-page{
-    background: url('../../images/pattern/pattern1.png') repeat black !important;
+    background: url('../../images/pattern/admin-bg.jpeg') repeat black !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+
+}
+.login-page .login-box-body{
+    background: rgba(0,0,0,0.5) !important;
+
 }
 
 .login-box{
