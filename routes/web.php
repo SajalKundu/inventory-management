@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Report\CreditReportController;
+use App\Http\Controllers\Admin\Report\DebitReportController;
 use App\Http\Controllers\Admin\Report\SaleReportController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\CategoryController;
@@ -150,6 +152,16 @@ Route::group([
             Route::get('/', 'index')->name('index');
             Route::post('sale-report-show', 'saleReportDataShow')->name('sale-report-show');
             Route::get('sale-report-download/{start_date}/{end_date}', 'saleReportDataDownload')->name('sale-report-download');
+        });
+        Route::controller(CreditReportController::class)->prefix('creditor')->name('admin.report.creditor.')->group(function(){
+            Route::get('/', 'index')->name('index');
+            Route::post('credit-report-show', 'creditReportDataShow')->name('creditor-report-show');
+            Route::get('credit-report-download/{start_date}/{end_date}', 'creditReportDataDownload')->name('creditor-report-download');
+        });
+        Route::controller(DebitReportController::class)->prefix('debtor')->name('admin.report.debtor.')->group(function(){
+            Route::get('/', 'index')->name('index');
+            Route::post('debit-report-show', 'debitReportDataShow')->name('debtor-report-show');
+            Route::get('debit-report-download/{start_date}/{end_date}', 'debitReportDataDownload')->name('debtor-report-download');
         });
     });
 });

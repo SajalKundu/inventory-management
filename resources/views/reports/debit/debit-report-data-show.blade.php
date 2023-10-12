@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Sale Report
+    Debtors Report
 @endsection
 @section('additional_admin_css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" />
@@ -16,16 +16,18 @@
                         <div class="card mt-2">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <a href="{{ route('admin.report.sale.index') }}" class="btn btn-warning btn-sm">
+                                    <a href="{{ route('admin.report.debtor.index') }}" class="btn btn-warning btn-sm">
                                         <i class="fa fa-angle-left"></i>
                                         Back
                                     </a>
-                                    Sale Report
+                                    Debtors Report
                                 </h3>
                                 <div class="card-tools">
-                                    <a href="{{ route('admin.report.sale.sale-report-download',['start_date' => $start_date, 'end_date' => $end_date]) }}" class="btn btn-danger btn-sm">
+                                    @if(count($debtors) > 0)
+                                    <a href="{{ route('admin.report.debtor.debtor-report-download', ['start_date' => $start_date, 'end_date' =>$end_date]) }}" class="btn btn-danger btn-sm">
                                         <i class="fa fa-download"></i>
                                     </a>
+                                    @endif
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -40,46 +42,44 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                @if(count($sales) > 0)
+                                @if(count($debtors) > 0)
                                 <div class="table-responsive">
                                     <h3>Products Info</h3>
                                     <table class="table table-bordered">
                                         <thead>
-                                          <tr>
-                                            <th>SL.</th>
-                                            <th>Description</th>
-                                            <th>Buy Price</th>
-                                            <th>Sale Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total Price</th>
-                                          </tr>
+                                            <tr>
+                                                <th>Sl.</th>
+                                                <th>Name</th>
+                                                <th>Company</th>
+                                                <th>Amount</th>
+                                                <th>Email</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Deal Date</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                          @foreach($sales as $item)
+                                          @foreach($debtors as $item)
                                             <tr>
                                               <td>{{ $loop->iteration }}</td>
-                                              <td>{{ $item->product_name }}</td>
-                                              <td>{{ $item->buy_price_price }}</td>
-                                              <td>{{ $item->sale_price }}</td>
-                                              <td>{{ $item->sale_quantity }}</td>
-                                              <td>{{ $item->total_price }}</td>
+                                              <td>{{ $item->name }}</td>
+                                              <td>{{ $item->company }}</td>
+                                              <td>{{ $item->amount }}</td>
+                                              <td>{{ $item->email }}</td>
+                                              <td>{{ $item->mobile }}</td>
+                                              <td>{!! $item->address !!}</td>
+                                              <td>
+                                                    {{ Carbon\Carbon::parse($item->deal_date)->format('Y-m-d') }}
+                                              </td>
                                             </tr>
                                           @endforeach
-                                          <tr>
-                                            <td colspan="2" style="text-align: right;">Total</td>
-                                            <td>{{ $sales->sum('buy_price_price') }}</td>
-                                            <td>
-                                                {{ $sales->sum('sale_price') }}
-                                            </td>
-                                            <td></td>
-                                            <td>
-                                                {{ $sales->sum('total_price') }}
-                                            </td>
-                                          </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
+                                @else
+                                    <div class="alert alert-danger" role="alert">
+                                        <h2 class="text-center">No Data Found</h2>
+                                    </div>
                                 @endif
                             </div>
                             <!-- /.card-body -->
@@ -109,15 +109,20 @@
 
         $(function () {
             $('#reservationdate').datepicker({
-                format: 'dd-mm-yyyy',
-                todayHighlight: true,
-                autoClose: true,
+                "format": 'yyyy-mm-dd',
+                'autoclose': true,
+                'clearBtn': true,
+                'theme': 'bootstrap4',
+                'todayHighlight': true,
+
             });
 
             $('#reservationdate1').datepicker({
-                format: 'dd-mm-yyyy',
-                todayHighlight: true,
-                autoClose: true,
+                "format": 'yyyy-mm-dd',
+                'autoclose': true,
+                'clearBtn': true,
+                'theme': 'bootstrap4',
+                'todayHighlight': true,
             });
         });
     </script>
