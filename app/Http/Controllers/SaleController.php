@@ -27,7 +27,7 @@ class SaleController extends Controller
         $sale = Sale::orderBy('id', 'desc')->first();
 
         if($sale == null) {
-            $sale_no = "00000001";
+            $sale_no = "10000001";
         }else{
             $invoice_id = Sale::orderBy('id', 'desc')->first()->invoice_id;
             $sale_no = (int) $invoice_id + 1;

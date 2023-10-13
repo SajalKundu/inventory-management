@@ -1,8 +1,8 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('home') }}" class="brand-link">
-        <img src="{{ asset('backend/images/logo.png') }}" alt="EBL WEARABLE" class="img-responsive w-100">
+    <a href="{{ route('home') }}" class="brand-link text-center">
+        <img src="{{ asset('backend/images/inventory-logo.png') }}" alt="Inventory" class="img-responsive " width="50">
     </a>
 
     <!-- Sidebar -->
@@ -74,7 +74,6 @@
                         </p>
                     </a>
                 </li>
-<<<<<<< HEAD
                 <li class="nav-item">
                     <a href="{{ route('admin.sale.index') }}" class="nav-link @if(request()->is('admin/sale*')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
@@ -96,7 +95,10 @@
                             <a href="{{ route('admin.report.sale.index') }}" class="nav-link">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Sale</p>
-=======
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link @if (request()->is('admin/contacts*')) active @endif">
@@ -108,7 +110,6 @@
                             <a href="{{ route('contacts.contact-us.index') }}" class="nav-link  @if (request()->is('admin/contacts/contact-us*')) active @endif">
                                 <i class="far fa-address-card nav-icon"></i>
                                 <p>Contact Us</p>
->>>>>>> d1d35a09f32f0ff280f4a960d1ed482b8656c2e4
                             </a>
                         </li>
 

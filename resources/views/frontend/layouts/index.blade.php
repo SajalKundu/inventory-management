@@ -50,19 +50,7 @@ Inventory Management System
     <div class="container">
         <div class="col-sm-7 about-txt">
             <h2>About Us</h2>
-            <p>Magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum. Magna
-                aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum. Magna
-                aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum. Magna
-                aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-            <p>Magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum. Magna
-                aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum. Magna
-                aliqua ut enim ad minim veniam.</p>
+            {!! $contact->details !!}
         </div>
         <div class="col-sm-5 about-txt"><img src="{{ asset('frontend') }}/images/doctor-img4.jpg" alt="about" />
         </div>
@@ -70,7 +58,7 @@ Inventory Management System
 </section>
 <!-- About Us End -->
 <!-- Services Start -->
-<section id="services" class="services">
+{{-- <section id="services" class="services">
     <div class="container">
         <div class="title">
             <h2>Our <span>Services</span></h2>
@@ -95,7 +83,7 @@ Inventory Management System
 
         </div>
     </div>
-</section>
+</section> --}}
 <!-- Services End -->
 <!-- Our counters -->
 <div class="counters">
@@ -296,19 +284,20 @@ Inventory Management System
                 <div class="contact-details">
                     <div class="col-sm-3"> <i class="fa fa-map-marker" aria-hidden="true"></i>
                         <h3>Address</h3>
-                        <p>300 E-Block Building, USA</p>
+                        <p>{{ $contact->address }}
                     </div>
                     <div class="col-sm-3"> <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <h3>Eamil</h3>
-                        <p><a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+                        <h3>Email</h3>
+                        <p><a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a></p>
                     </div>
                     <div class="col-sm-3"> <i class="fa fa-phone" aria-hidden="true"></i>
-                        <h3>Contact Number</h3>
-                        <p>0800 123 46 0000</p>
+                        <h3>Mobile Number</h3>
+                        <p>{{ $contact->mobile }}</p>
                     </div>
                     <div class="col-sm-3"> <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-                        <h3>Customer Care</h3>
-                        <p>0800 123 46 7890</p>
+
+                        <h3>Phone Number</h3>
+                        <p>{{ $contact->phone }}</p>
                     </div>
                 </div>
             </div>
@@ -316,7 +305,7 @@ Inventory Management System
     </div>
     <div class="google-map">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d198710.35112897935!2d-98.51489117772236!3d38.904562823631146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1471865832140"
+            src="{{ $contact->map }}"
             allowfullscreen></iframe>
     </div>
 </section>

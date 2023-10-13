@@ -1,14 +1,15 @@
 <header>
+
     <div class="top-bar hidden-sm hidden-xs">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="list-unstyled list-inline">
                         <li>
-                            <p><i class="fa fa-clock-o"></i> We are today working: 9:00 am - 5:00 pm</p>
+                            <p><i class="fa fa-clock-o"></i> {{ $contact->about_company }}</p>
                         </li>
                         <li>
-                            <p><i class="fa fa-phone"></i> Call us +1 0123 456 789</p>
+                            <p><i class="fa fa-phone"></i> Call us {{ $contact->mobile }}</p>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +59,7 @@
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="#home">Home</a></li>
                                 <li><a href="#aboutus">About Us</a></li>
-                                <li><a href="#services">Services</a></li>
+                                {{-- <li><a href="#services">Services</a></li> --}}
                                 <li><a href="#portfolio">Portfolio</a></li>
                                 <li><a href="#contactus">Contact Us</a></li>
                             </ul>
