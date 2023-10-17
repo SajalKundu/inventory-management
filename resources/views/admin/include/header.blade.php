@@ -11,12 +11,19 @@
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fas fa-user"></i> | {{ Auth::user()->name }}
+                @if (Auth::user()->image==null)
+                <i class="fas fa-user"></i>
+                @else
+                <img src="{{ asset(Auth::user()->image_path.Auth::user()->image) }}" class="img-circle" width="30px"
+                height="30px">
+                @endif
+
+                | {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center">
-                <span class="dropdown-item dropdown-header">Admin Panel</span>
+                <a href="{{ route('a_userlist') }}"><span class="dropdown-item dropdown-header">User List</span></a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a href="{{ route('a_userPassword') }}" class="dropdown-item">
                     Change Password
                 </a>
                 <div class="dropdown-divider"></div>

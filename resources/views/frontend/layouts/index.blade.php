@@ -52,7 +52,7 @@ Inventory Management System
             <h2>About Us</h2>
             {!! $contact->details !!}
         </div>
-        <div class="col-sm-5 about-txt"><img src="{{ asset('frontend') }}/images/doctor-img4.jpg" alt="about" />
+        <div class="col-sm-5 about-txt margin-top"><img class="img-responsive" src="{{ asset( $contact->banner_path. $contact->banner) }}" alt="about" />
         </div>
     </div>
 </section>
@@ -112,126 +112,24 @@ Inventory Management System
         <span class="title-border-blue"><i class="fa fa-plus-square"></i></span>
     </div>
     <div class="gal-container">
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#1"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img1.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="1" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img1.jpg" alt="Gallery Image">
+        @foreach ($galleris as $gallery)
+            <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
+                <div class="box"> <a href="#" data-toggle="modal" data-target="#{{ $gallery->id }}"> <img
+                            src="{{ asset($gallery->image_path.$gallery->image) }}" alt="Gallery Image"> </a>
+                    <div class="modal fade" id="{{ $gallery->id }}" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+                                <div class="modal-body"> <img src="{{ asset($gallery->image_path.$gallery->image) }}" alt="Gallery Image">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#2"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img2.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="2" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img2.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#3"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img3.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="3" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img3.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#4"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img4.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="4" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img4.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#5"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img5.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="5" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img5.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#6"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img6.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="6" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img6.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#7"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img7.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="7" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img7.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 co-xs-12 gal-item">
-            <div class="box"> <a href="#" data-toggle="modal" data-target="#8"> <img
-                        src="{{ asset('frontend') }}/images/gallery-img8.jpg" alt="Gallery Image"> </a>
-                <div class="modal fade" id="8" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            <div class="modal-body"> <img src="{{ asset('frontend') }}/images/gallery-img8.jpg" alt="Gallery Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </section>
 <!-- Portfolio End -->

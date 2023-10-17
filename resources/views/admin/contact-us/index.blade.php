@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Banner:</label>
+                                <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Image:</label>
                                 <div class="col-sm-5 pl-0">
                                     <div class="col-sm-12">
                                         <input type="file" class="form-control" id="banner" name="banner" >
@@ -109,7 +109,7 @@
                                     @if($contact_us->banner)
                                         <div class="col-sm-12">
                                             <div class="col-sm-8">
-                                                <input type="checkbox" class="flat-blue" name="del_banner" value="1">&nbsp;Delete Current Banner
+                                                <input type="checkbox" class="flat-blue" name="del_banner" value="1">&nbsp;Delete Current Image
                                             </div>
                                             <div class="col-sm-4">
                                                 <a href="{{ url($contact_us->banner_path.$contact_us->banner) }}" target="_blank">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyDetails;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -34,8 +35,9 @@ class ContactUsController extends Controller
         if($request->hasFile('banner')){
             $banner = $request->file('banner');
             $banner_name = time() . '_banner_' . $banner->getClientOriginalName();
-            $img_banner = Image::make($banner->getRealPath())->resize(1920, 768);
-            $img_banner->save($path.$banner_name);
+            // $img_banner = Image::make($banner->getRealPath())->resize(1920, 768);
+            // $img_banner->save($path.$banner_name);
+            $banner->move($path, $banner_name);
             if($contact_us->banner != null){
                 $old_banner_path = $path.$contact_us->banner;
                 if(file_exists($old_banner_path)){
@@ -69,6 +71,40 @@ class ContactUsController extends Controller
         if($contact_us->save())
 
         return redirect()->route('contacts.contact-us.index')->with('msg', 'Contact Us updated successfully.');
+
+    }
+
+
+    public function companyIndex()
+    {
+        $company_details = CompanyDetails::first();
+        return view('admin.contact-us.company-Details', compact('company_details'));
+    }
+
+    public function companyUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'title'         => 'required|string',
+            'address'       => 'required|string|max:255',
+            'email'         => 'nullable|email',
+            'mobile'        => 'nullable|string',
+            'phone'         => 'nullable|string',
+            'label'        => 'nullable|string',
+        ]);
+
+        $contact_us = CompanyDetails::findOrFail($id);
+
+
+        $contact_us->title         = $request->title;
+        $contact_us->address  = $request->address;
+        $contact_us->mobile= $request->mobile;
+        $contact_us->email      = $request->email;
+        $contact_us->phone       = $request->phone;
+        $contact_us->label       = $request->label;
+
+        if($contact_us->save())
+
+        return redirect()->route('contacts.company-details.index')->with('msg', 'Company Details updated successfully.');
 
     }
 }

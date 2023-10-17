@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyDetails;
 use App\Models\Customer;
 use App\Models\Debtors;
 use App\Models\Product;
@@ -116,7 +117,8 @@ class SaleController extends Controller
         $invoice_info = Sale::with(['customer', 'saleProducts' => function($sale){
             $sale->with('product');
         }])->where('invoice_id', $invoice_id)->first();
-        return view('sale.print', compact('invoice_info'));
+        $company_info = CompanyDetails::first();
+        return view('sale.print', compact('invoice_info', 'company_info'));
     }
 
 

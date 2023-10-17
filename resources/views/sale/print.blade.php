@@ -12,11 +12,23 @@
 <body>
 <div id="printcontent">
   <div class="container">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-6 col-md-offset-3">
         <div class="company_info">
-          <p id="company_name">Company Name</p>
-          <p id="company_address">Company Address</p>
-          <p id="company_mobile_email">Company Mobile & Company Email</p>
+         @if ($company_info->title)
+         <p id="company_name" class="text-capitalize fa-2x">{{ $company_info->title  }}</p>
+         @endif
+          @if ($company_info->address)
+          <p id="company_address">{!! $company_info->address !!}</p>
+          @endif
+         @if ($company_info->mobile)
+         <p id="company_mobile_email"><b>Mobile: </b>{{ $company_info->mobile }}</p>
+         @endif
+            @if ($company_info->phone)
+            <p id="company_phone"><b>Phone: </b>{{ $company_info->phone }}</p>
+            @endif
+            @if ($company_info->email)
+            <p id="company_email"><b>Email: </b>{{ $company_info->email }}</p>
+            @endif
         </div>
       </div>
   </div>
@@ -52,11 +64,11 @@
     <table class="table table-bordered">
       <tbody>
         <tr>
-          <td style="width: 10px;">Name</td>
+          <td style="width: 10px;"><b>Name</b></td>
           <td>{{ $invoice_info->customer_name }}</td>
         </tr>
         <tr>
-          <td style="width: 10px;">Address</td>
+          <td style="width: 10px;"><b>Address</b></td>
           <td>{!! $invoice_info->customer_address !!}</td>
         </tr>
       </tbody>
@@ -68,7 +80,7 @@
       <thead>
         <tr>
           <th>SL.</th>
-          <th>Description</th>
+          <th>Item Description</th>
           <th>Buy Price</th>
           <th>Sale Price</th>
           <th>Quantity</th>
@@ -107,9 +119,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 quote">
-        <p class="text-center">
-          This is demo text.This is demo text.This is demo text.This is demo text.This is demo text.
-        </p>
+        @if ($company_info->label)
+            <p class="text-center text-primary">
+            {{ $company_info->label }}
+          </p>
+
+        @endif
       </div>
     </div>
   </div>

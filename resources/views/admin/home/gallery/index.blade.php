@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-   Creditors
+  Gallery
 @endsection
 @section('additional_admin_css')
 @endsection
@@ -14,9 +14,11 @@
                 <div class="col-md-12">
                     <div class="card mt-2">
                         <div class="card-header">
-                            <h3 class="card-title">Creditors</h3>
+                            <h3 class="card-title">
+
+                                Gallery </h3>
                             <div class="card-tools">
-                                <a href="{{ route('creditors.Add') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add New</a>
+                                <a href="{{ route('a_gallery.Add') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add New</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -25,43 +27,44 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Name</th>
-                                        <th>Company</th>
-                                        <th>Amount</th>
-                                        <th style="text-align: center;">Image/File</th>
-                                        <th style="text-align: center;">Payment Date</th>
-                                        <th style="text-align: center;">View</th>
+                                        <th>Rank</th>
+                                        <th>Title</th>
+                                        <th style="text-align: center;">Image</th>
+                                        <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Edit</th>
                                         <th style="text-align: center;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($results as $result)
+                                    @foreach ($gallery as $result)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $result->name }}</td>
-							            <td>{{ $result->company }}</td>
-							            <td>{{ $result->amount }}</td>
+                                        <td>{{ $result->rank }}</td>
+							            <td>{{ $result->title }}</td>
 
-                                        <td style="text-align: center;">@if($result->file)
-                                            <a href="{{ asset($result->path.$result->file) }}" target="_blank">View</a>
+
+                                        <td style="text-align: center;">@if($result->image)
+                                            <a href="{{ asset($result->image_path.$result->image) }}" target="_blank"><img src="{{ asset($result->image_path.$result->image) }}" width="50px" height="25px"></a>
                                             @endif
                                         </td>
-                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->payment_date)->format('d F Y') }}</td>
-                                        <td style="text-align: center;">
-                                            <a href="{{ route('creditors.show', ['id' => $result->id]) }}">
-                                                <img src="{{ asset('backend/images/details.gif') }}">
-                                            </a>
+
+
+                                        <td style="text-align: center;">@if($result->status)
+                                            <a
+                                            href="JavaScript:status('{{ route('a_gallery.Status',['id' => $result->id, 'value' => $result->status, 'status' => 'status' ]) }}')"> <img src="{{ asset('backend/images/yes.gif') }}"></a>
+                                            @else
+                                            <a
+                                            href="JavaScript:status('{{ route('a_gallery.Status',['id' => $result->id, 'value' => $result->status, 'status' => 'status']) }}')"> <img src="{{ asset('backend/images/no.gif') }}"></a>
+                                            @endif
                                         </td>
 
-
                                         <td style="text-align: center;">
-                                            <a href="{{ route('creditors.edit', ['id' => $result->id]) }}">
+                                            <a href="{{ route('a_gallery.edit', ['id' => $result->id]) }}">
                                                 <img src="{{ asset('backend/images/edit.gif') }}">
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="JavaScript:status('{{ route('creditors.destroy', ['id' => $result->id]) }}')">
+                                            <a href="JavaScript:status('{{ route('a_gallery.destroy', ['id' => $result->id]) }}')">
                                                 <img src="{{ asset('backend/images/del.gif') }}">
                                             </a>
                                         </td>

@@ -375,11 +375,6 @@
 
             var serial = $(this).attr('serial');
             var sale_quantity = $("#sale_quantity_"+serial).val();
-            if(sale_quantity == '' || sale_quantity == null){
-                alert('Please enter sale quantity first');
-                $("#sale_quantity_"+serial).focus();
-                return false;
-            }
             var sale_price =  $(this).val();
 
 

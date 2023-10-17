@@ -25,6 +25,13 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="{{ route('a_gallery.index') }}" class="nav-link  @if (request()->is('admin/gallery*')) active @endif">
+                                <i class="far fa-image nav-icon"></i>
+                                <p>Portfolio Gallery</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -78,7 +85,7 @@
                     <a href="{{ route('admin.sale.index') }}" class="nav-link @if(request()->is('admin/sale*')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Sale
+                            Invoice
                         </p>
                     </a>
                 </li>
@@ -97,6 +104,18 @@
                                 <p>Sale</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.report.creditor.index') }}" class="nav-link">
+                                <i class="fas fa-angle-right nav-icon"></i>
+                                <p>Creditor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.report.debtor.index') }}" class="nav-link">
+                                <i class="fas fa-angle-right nav-icon"></i>
+                                <p>Debtors</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -106,10 +125,19 @@
                         <p> Contact</p><i class="fas fa-angle-left right"></i>
                     </a>
                     <ul class="nav nav-treeview" >
+
+
                         <li class="nav-item">
                             <a href="{{ route('contacts.contact-us.index') }}" class="nav-link  @if (request()->is('admin/contacts/contact-us*')) active @endif">
                                 <i class="far fa-address-card nav-icon"></i>
                                 <p>Contact Us</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('contacts.company-details.index') }}" class="nav-link  @if (request()->is('admin/contacts/company-details*')) active @endif">
+                                <i class="far fa-address-card nav-icon"></i>
+                                <p>Company Details</p>
                             </a>
                         </li>
 

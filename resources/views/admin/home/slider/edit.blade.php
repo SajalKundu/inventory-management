@@ -20,7 +20,7 @@
                                     <i class="fas fa-arrow-left"></i>
                                     Back
                                 </a>
-                                Edit Customer
+                                Edit Slider
                             </h3>
                         </div>
                         @if ($errors->any())
