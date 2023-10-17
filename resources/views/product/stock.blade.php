@@ -67,6 +67,7 @@
                                             <th>Name</th>
                                             <th>Quantity</th>
                                             <th>Stock Type</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -75,6 +76,7 @@
                                                 <td>{{ $stock->product->name ?? 'Deleted Product' }}</td>
                                                 <td>{{ $stock->qunatity }}</td>
                                                 <td>{{ $stock->stock_type }}</td>
+                                                <td>{{ Carbon\Carbon::parse($stock->created_at)->format('Y-m-d') }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

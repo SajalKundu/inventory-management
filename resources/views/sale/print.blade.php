@@ -68,7 +68,7 @@
       <thead>
         <tr>
           <th>SL.</th>
-          <th>Description</th>
+          <th>Item Description</th>
           <th>Buy Price</th>
           <th>Sale Price</th>
           <th>Quantity</th>

@@ -23,7 +23,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'nullable|email|max:255',
-            'mobile' => 'required|string|min:11|max:11|unique:customers,mobile',
+            'mobile' => 'nullable|string|min:11|max:11|unique:customers,mobile',
             'address' => 'nullable|string',
             'status' => 'required|in:active,inactive',
         ]);
@@ -54,7 +54,7 @@ class CustomerController extends Controller
         $request->validate([
             'name'    => 'required|string|max:255',
             'email'   => 'nullable|email|max:255',
-            'mobile'  => 'required|string|min:11|max:11|unique:customers,mobile,'.$id,
+            'mobile'  => 'nullable|string|min:11|max:11|unique:customers,mobile,'.$id,
             'address' => 'nullable|string',
             'status'  => 'required|in:active,inactive',
         ]);

@@ -68,7 +68,7 @@
                                                     <div class="form-group row">
                                                         <label for="mobile" class="col-sm-2 col-form-label text-lg-right">Mobile</label>
                                                         <div class="col-sm-8">
-                                                            <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required>
+                                                            <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile">
                                                         </div>
                                                     </div>
 
@@ -76,14 +76,7 @@
                                                         <label for="address" class="col-sm-2 col-form-label text-lg-right">Address</label>
                                                         <div class="col-sm-10">
                                                             <textarea type="text" class="form-control" id="address" name="address"></textarea>
-                                                            <script type="text/javascript">
-                                                                CKEDITOR.replace("address",
-                                                                {
-                                                                    height:"200",
-                                                                    width:"100%",
-                                                                    allowedContent: true,
-                                                                });
-                                                            </script>
+
                                                         </div>
                                                     </div>
 
@@ -169,13 +162,6 @@
                                         <div class="form-group">
                                             <label for="customer_address">Customer Address</label>
                                             <textarea class="form-control" name="customer_address" id="customer_address" cols="15" rows="5" required></textarea>
-                                            <script type="text/javascript">
-                                                CKEDITOR.replace("customer_address", {
-                                                    height: "100",
-                                                    width: "100%",
-                                                    allowedContent: true,
-                                                });
-                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +246,7 @@
                                 <div class="form-group row">
                                     <label for="home_status"></label>
                                     <div class="col-sm-4">
-                                        <button type="submit" class="btn btn-success">Save</button>
+                                        <button type="submit" class="btn btn-success">Sale</button>
                                     </div>
                                 </div>
                             </form>
@@ -310,11 +296,7 @@
                 success: function(response){
                     if(response.status == 'success'){
                         $('#customer_mobile').val(response.customer.mobile);
-                        // $('#customer_address').val(response.customer.address);  --}}
-
-                        // textarea editor update
-
-                        CKEDITOR.instances['customer_address'].setData(response.customer.address);
+                        $('#customer_address').val(response.customer.address);
                     }
                 }
             });

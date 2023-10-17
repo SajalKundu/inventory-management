@@ -18,7 +18,7 @@
                                 <div class="card-tools">
                                     <a href="{{ route('admin.sale.create') }}" class="btn btn-primary btn-sm">
                                         <i class="fas fa-plus"></i>
-                                        Add New
+                                        Create Sale
                                     </a>
                                 </div>
                             </div>

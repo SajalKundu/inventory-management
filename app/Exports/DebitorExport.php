@@ -37,6 +37,7 @@ class DebitorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMapp
             $debtor->mobile,
             strip_tags($debtor->address),
             Carbon::parse($debtor->deal_date)->format('Y-m-d'),
+            Carbon::parse($debtor->recovery_date)->format('Y-m-d'),
         ];
     }
 
@@ -51,6 +52,7 @@ class DebitorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMapp
             'Mobile',
             'Address',
             'Deal Date',
+            'Recovery Date',
         ];
     }
 

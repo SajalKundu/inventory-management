@@ -16,6 +16,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Products</h3>
                                 <div class="card-tools">
+                                    <h2 class="btn btn-success">Total Buy Price: {{ $products->sum('price') }}</h2>
                                     <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-sm">
                                         <i class="fas fa-plus"></i>
                                         Add New
@@ -39,9 +40,9 @@
                                         <tr>
                                             <th>SL.</th>
                                             <th>Name</th>
-                                            <th>Price</th>
+                                            <th>Buy Price</th>
                                             <th>Sale Price</th>
-                                            <th>Quantity</th>
+                                            <th>Av. Quantity</th>
                                             <th>Stock</th>
                                             <th>Status</th>
                                             <th>Edit</th>
@@ -138,7 +139,7 @@
     <script>
         $('#example2').DataTable({
             "paging": true,
-            "lengthChange": false,
+            "lengthChange": true,
             "searching": true,
             "ordering": false,
             "info": true,

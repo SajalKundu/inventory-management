@@ -54,7 +54,7 @@
                                 <div class="form-group row">
                                     <label for="mobile" class="col-sm-2 col-form-label text-lg-right">Mobile</label>
                                     <div class="col-sm-8">
-                                        <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required>
+                                        <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile">
                                     </div>
                                 </div>
 
