@@ -52,6 +52,7 @@
                                             <th>Sale Price</th>
                                             <th>Quantity</th>
                                             <th>Total Price</th>
+                                            <th>Sale Date</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -63,6 +64,7 @@
                                               <td>{{ $item->sale_price }}</td>
                                               <td>{{ $item->sale_quantity }}</td>
                                               <td>{{ $item->total_price }}</td>
+                                              <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
                                             </tr>
                                           @endforeach
                                           <tr>
@@ -75,6 +77,7 @@
                                             <td>
                                                 {{ $sales->sum('total_price') }}
                                             </td>
+                                            <td></td>
                                           </tr>
 
                                         </tbody>

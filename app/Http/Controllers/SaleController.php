@@ -70,6 +70,7 @@ class SaleController extends Controller
         $sale->due_amount = $request->due_amount;
         $sale->save();
 
+        $product_name = '';
         foreach ($request->product_id as $key => $product_id) {
             $saleProduct = new SaleProduct();
             $saleProduct->sale_id = $sale->id;
@@ -87,6 +88,11 @@ class SaleController extends Controller
             $product->sold_quantity = $product->sold_quantity + $request->sale_quantity[$key];
             $product->save();
 
+
+            $product_name .= Product::where('id', $product_id)->first()->name.', ';
+
+
+
             $productStcock = new ProductStock();
             $productStcock->product_id = $product_id;
             $productStcock->stock_type = 'sale';
@@ -94,10 +100,13 @@ class SaleController extends Controller
             $productStcock->save();
         }
 
+        $details = 'Invoice Id: '.$request->invoice_id.' and Product Name: '.$product_name;
+
         $debitor = new Debtors();
         $debitor->name = $customer->name;
         $debitor->mobile = $customer->mobile;
         $debitor->address = $request->customer_address;
+        $debitor->details = $details;
         $debitor->email = $customer->email;
         $debitor->amount = $request->due_amount;
         $debitor->deal_date = Carbon::now()->format('Y-m-d');
