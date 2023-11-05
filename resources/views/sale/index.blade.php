@@ -37,14 +37,14 @@
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>SL.</th>
-                                            <th>Invoice No</th>
-                                            <th>Customer Name</th>
-                                            <th>Total Amount</th>
-                                            <th>Payable Amount</th>
-                                            <th>Due Amount</th>
-                                            <th>View</th>
-                                            <th>Delete</th>
+                                            <th width="5%">SL.</th>
+                                            <th width="15%">Invoice No</th>
+                                            <th width="25%">Customer Name</th>
+                                            <th width="15%">Invoice Amount</th>
+                                            <th width="15%">Paid Amount</th>
+                                            <th width="15%">Due Amount</th>
+                                            <th width="5%">View</th>
+                                            <th width="5%">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>

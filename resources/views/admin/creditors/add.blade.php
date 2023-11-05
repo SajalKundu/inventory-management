@@ -88,21 +88,21 @@
                                     <div class="form-group row">
                                         <label for="details" class="col-sm-2 col-form-label text-lg-right">Details</label>
                                         <div class="col-sm-9">
-                                            <textarea type="text" class="form-control" id="details" name="details"></textarea>
-                                            <script type="text/javascript">
+                                            <textarea type="text" class="form-control" id="details" name="details" rows="3"></textarea>
+                                            {{-- <script type="text/javascript">
                                                 CKEDITOR.replace("details", {
                                                     height: "300",
                                                     width: "100%",
                                                     allowedContent: true,
                                                 });
-                                            </script>
+                                            </script> --}}
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
+                                    {{-- <div class="form-group row">
                                         <label for="address" class="col-sm-2 col-form-label text-lg-right">Address</label>
                                         <div class="col-sm-9">
-                                            <textarea type="text" class="form-control" id="address" name="address"></textarea>
+                                            <textarea type="text" class="form-control" id="address" name="address" rows="3"></textarea>
                                             <script type="text/javascript">
                                                 CKEDITOR.replace("address", {
                                                     height: "300",
@@ -111,7 +111,7 @@
                                                 });
                                             </script>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 
 
@@ -133,7 +133,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="payment_date" class="col-sm-2 col-form-label text-lg-right">Payment Date</label>
+                                        <label for="payment_date" class="col-sm-2 col-form-label text-lg-right">Paid on</label>
                                         <div class="col-sm-6">
                                             <input type="date" name="payment_date" class="form-control"
                                                 id="payment_date" placeholder="Payment Date" required>

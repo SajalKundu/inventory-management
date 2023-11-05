@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="list-unstyled list-inline">
-                        <li>
+                        {{-- <li>
                             <p><i class="fa fa-clock-o"></i> {{ $contact->about_company }}</p>
-                        </li>
+                        </li> --}}
                         <li>
                             <p><i class="fa fa-phone"></i> Call us {{ $contact->mobile }}</p>
                         </li>
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row">
                 <!-- Logo -->
-                <div class="col-sm-2 hidden-xs"> <a href="index-2.html"><img src="{{ asset('frontend') }}/images/inventory-logo.png"
+                <div class="col-sm-2 hidden-xs"> <a href="{{url('/') }}"><img src="{{ asset('frontend') }}/images/inventory-logo.png"
                             alt="inventory" /></a> </div>
                 <!-- Navigation -->
                 <div class="col-sm-10 col-xs-12 navigation">
@@ -52,7 +52,7 @@
                                     class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
                                     class="icon-bar"></span> <span class="icon-bar"></span> </button>
                             <a class="navbar-brand" href="#home"><img src="{{ asset('frontend') }}/images/inventory.png"
-                                    alt="White Dental Care" /></a>
+                                    alt="inventory" /></a>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -62,6 +62,7 @@
                                 {{-- <li><a href="#services">Services</a></li> --}}
                                 <li><a href="#portfolio">Portfolio</a></li>
                                 <li><a href="#contactus">Contact Us</a></li>
+                                <li><a href="{{ url('/login') }}">Login</a></li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->

@@ -24,15 +24,16 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL</th>
-                                        <th>Name</th>
-                                        <th>Company</th>
-                                        <th>Amount</th>
-                                        <th style="text-align: center;">Image/File</th>
-                                        <th style="text-align: center;">Payment Date</th>
-                                        <th style="text-align: center;">View</th>
-                                        <th style="text-align: center;">Edit</th>
-                                        <th style="text-align: center;">Delete</th>
+                                        <th width="5%">SL</th>
+                                        <th width="10%">Name</th>
+                                        <th width="15%">Company</th>
+                                        <th width="10%">Amount</th>
+                                        <th width="5%" style="text-align: center;">Image/File</th>
+                                        <th width="20%" style="text-align: center;">Deal Date</th>
+                                        <th width="20%" style="text-align: center;">Paid on</th>
+                                        <th width="5%" style="text-align: center;">View</th>
+                                        <th width="5%" style="text-align: center;">Edit</th>
+                                        <th width="5%" style="text-align: center;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +48,8 @@
                                             <a href="{{ asset($result->path.$result->file) }}" target="_blank">View</a>
                                             @endif
                                         </td>
-                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->payment_date)->format('d F Y') }}</td>
+                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->date)->format('d-m-Y') }}</td>
+                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->payment_date)->format('d-m-Y') }}</td>
                                         <td style="text-align: center;">
                                             <a href="{{ route('creditors.show', ['id' => $result->id]) }}">
                                                 <img src="{{ asset('backend/images/details.gif') }}">

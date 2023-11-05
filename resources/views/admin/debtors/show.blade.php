@@ -33,7 +33,7 @@
                                         <td>{{ $result->company }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Amount</th>
+                                        <th>Due Amount</th>
                                         <td>{{ $result->amount }}</td>
                                     </tr>
                                 @if($result->email)
@@ -85,13 +85,13 @@
                                 @if($result->deal_date)
                                     <tr>
                                         <th>Deal Date</th>
-                                        <td>{{ \Carbon\Carbon::parse($result->deal_date)->format('d F Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($result->deal_date)->format('d-m-Y') }}</td>
                                     </tr>
                                 @endif
                                 @if($result->recovery_date)
                                     <tr>
                                         <th>Recovery Date</th>
-                                        <td>{{ \Carbon\Carbon::parse($result->recovery_date)->format('d F Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($result->recovery_date)->format('d-m-Y') }}</td>
                                     </tr>
                                 @endif
 

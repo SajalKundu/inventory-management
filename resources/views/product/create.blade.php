@@ -20,7 +20,7 @@
                                     <i class="fas fa-arrow-left"></i>
                                     Back
                                 </a>
-                                Create Product
+                                Create  Stock
                             </h3>
                         </div>
                         <!-- /.card-header -->
@@ -58,9 +58,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label text-lg-right">Name</label>
+                                    <label for="name" class="col-sm-2 col-form-label text-lg-right">Item</label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Product Name" required>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Item Name" required>
                                     </div>
                                 </div>
 

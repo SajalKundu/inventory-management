@@ -1,3 +1,27 @@
+body{
+    font-size: 18px !important;
+}
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    font-size: 18px !important;
+}
+table.table-bordered.dataTable th, table.table-bordered.dataTable td {
+    font-size: 18px !important;
+}
+.card-title {
+    font-size: 26px;
+}
+div.dataTables_wrapper div.dataTables_filter label {
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+div.dataTables_wrapper div.dataTables_filter input {
+
+    font-size: 18px !important;
+}
+.btn-group-sm>.btn, .btn-sm {
+    font-size: 16px !important;
+    line-height: 25px !important;
+}
 .login-page{
     background: url('../../images/pattern/admin-bg.jpeg') repeat black !important;
     background-size: cover !important;
@@ -12,4 +36,7 @@
 
 .login-box{
     width: 400px !important;
+}
+.table td, .table th {
+    padding: 7px !important;
 }

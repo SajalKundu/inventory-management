@@ -29,5 +29,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('contact', DB::table('contact_us')->first());
         });
 
+        View::composer('admin.home',function($view){
+            $view->with('contact', DB::table('contact_us')->first());
+        });
+
     }
 }

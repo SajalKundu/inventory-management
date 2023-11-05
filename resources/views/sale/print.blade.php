@@ -81,7 +81,6 @@
         <tr>
           <th>SL.</th>
           <th>Item Description</th>
-          <th>Buy Price</th>
           <th>Sale Price</th>
           <th>Quantity</th>
           <th>Total Price</th>
@@ -92,7 +91,6 @@
           <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->product_name }}</td>
-            <td>{{ $item->buy_price_price }}</td>
             <td>{{ $item->sale_price }}</td>
             <td>{{ $item->sale_quantity }}</td>
             <td>{{ $item->total_price }}</td>

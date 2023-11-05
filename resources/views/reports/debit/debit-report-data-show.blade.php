@@ -44,7 +44,7 @@
                                 @endif
                                 @if(count($debtors) > 0)
                                 <div class="table-responsive">
-                                    <h3>Products Info</h3>
+                                    <h3>Debtors Reports</h3>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>

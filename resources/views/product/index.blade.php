@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Products
+    Stocks
 @endsection
 @section('additional_admin_css')
 @endsection
@@ -14,7 +14,7 @@
                     <div class="col-md-12">
                         <div class="card mt-2">
                             <div class="card-header">
-                                <h3 class="card-title">Products</h3>
+                                <h3 class="card-title"> Stocks</h3>
                                 <div class="card-tools">
                                     <h2 class="btn btn-success">Total Buy Price: {{ $products->sum('price') }}</h2>
                                     <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-sm">
@@ -38,15 +38,15 @@
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>SL.</th>
-                                            <th>Name</th>
-                                            <th>Buy Price</th>
-                                            <th>Sale Price</th>
-                                            <th>Av. Quantity</th>
-                                            <th>Stock</th>
-                                            <th>Status</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th width="5%">SL.</th>
+                                            <th width="20%">Items</th>
+                                            <th width="10%">Buy Price</th>
+                                            <th width="10%">Sale Price</th>
+                                            <th width="10%">In Stock</th>
+                                            <th width="15%">Add Qty.</th>
+                                            <th width="10%">Status</th>
+                                            <th width="10%">Edit</th>
+                                            <th width="10%">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>

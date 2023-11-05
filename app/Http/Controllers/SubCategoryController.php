@@ -25,12 +25,16 @@ class SubCategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:sub_categories,name|string|max:255',
+            'model_name' => 'nullable|string|max:255',
+            'part_number' => 'nullable|string|max:255',
             'status' => 'required|in:active,inactive',
         ]);
 
         $subcategory              = new SubCategory();
         $subcategory->category_id = $request->category_id;
         $subcategory->name        = $request->name;
+        $subcategory->model_name  = $request->model_name ?? null;
+        $subcategory->part_number = $request->part_number ?? null;
         $subcategory->status      = $request->status;
         $subcategory->save();
 
@@ -48,11 +52,15 @@ class SubCategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:sub_categories,name,' . $id,
+            'model_name' => 'nullable|string|max:255',
+            'part_number' => 'nullable|string|max:255',
             'status' => 'required|in:active,inactive',
         ]);
 
         $subcategory              = SubCategory::findOrFail($id);
         $subcategory->name        = $request->name;
+        $subcategory->model_name  = $request->model_name ?? null;
+        $subcategory->part_number = $request->part_number ?? null;
         $subcategory->status      = $request->status;
         $subcategory->save();
 

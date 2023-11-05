@@ -75,7 +75,7 @@
                                                     <div class="form-group row">
                                                         <label for="address" class="col-sm-2 col-form-label text-lg-right">Address</label>
                                                         <div class="col-sm-10">
-                                                            <textarea type="text" class="form-control" id="address" name="address"></textarea>
+                                                            <textarea type="text" class="form-control" id="address" name="address" rows="3"></textarea>
 
                                                         </div>
                                                     </div>
@@ -161,7 +161,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="customer_address">Customer Address</label>
-                                            <textarea class="form-control" name="customer_address" id="customer_address" cols="15" rows="5" required></textarea>
+                                            <textarea class="form-control" name="customer_address" id="customer_address" cols="15" rows="3" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@
                                 <div class="row" id="registration1">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="product_id">Product</label>
+                                            <label for="product_id">Inventory</label>
                                             <select name="product_id[]" id="product_id" serial="1" class="product_id form-control" required>
                                                 <option value="">Select Product</option>
                                                 @foreach($products as $product)
@@ -195,7 +195,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="quantity">Quantity</label>
+                                            <label for="quantity">Qty. In Stock</label>
                                             <input type="number" name="quantity[]" serial="1" class="av_quantity form-control" id="quantity_1" placeholder="Quantity" required readonly>
                                         </div>
                                     </div>

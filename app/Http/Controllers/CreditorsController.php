@@ -28,7 +28,7 @@ class CreditorsController extends Controller
             'amount'      =>'required',
             'phone'       =>'nullable',
             'email'       =>'nullable',
-            'address'     =>'required',
+            // 'address'     =>'required',
             'file'        =>'nullable|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png,svg,zib,rar,zip',
             'deal_date'   =>'required',
             'payment_date'=>'required',
@@ -54,7 +54,7 @@ class CreditorsController extends Controller
         $result->phone   = $request->phone;
         $result->mobile   = $request->mobile;
         $result->email   = $request->email;
-        $result->address = $request->address;
+        // $result->address = $request->address;
         $result->path    = $path;
         $result->file    = $fileName;
         $result->deal_date   = $request->deal_date;
@@ -89,7 +89,7 @@ class CreditorsController extends Controller
             'amount'      =>'required',
             'phone'       =>'nullable',
             'email'       =>'nullable',
-            'address'     =>'required',
+            // 'address'     =>'required',
             'details'     =>'nullable',
             'file'        =>'nullable|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png,svg,zib,rar,zip',
             'deal_date'   =>'required',
@@ -131,7 +131,7 @@ class CreditorsController extends Controller
         $result->phone   = $request->phone;
         $result->mobile   = $request->mobile;
         $result->email   = $request->email;
-        $result->address = $request->address;
+        // $result->address = $request->address;
         $result->details = $request->details;
         $result->path    = $path;
         $result->deal_date   = $request->deal_date;

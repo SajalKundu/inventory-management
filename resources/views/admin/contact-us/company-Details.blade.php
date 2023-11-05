@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Contact Us
+Company Details
 @endsection
 @section('additional_admin_css')
 @endsection
@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <div class="card mt-2">
                         <div class="card-header">
-				<h3 class="box-title ">Comapny Details</h3>
+				<h3 class="box-title ">Company Details in Invoice</h3>
 			</div>
 
 			@if ($errors->any())

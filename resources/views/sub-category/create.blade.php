@@ -46,6 +46,22 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <label for="model_name" class="col-sm-2 col-form-label text-lg-right">Model Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="model_name" class="form-control" id="model_name" placeholder="Model Name" >
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="part_number" class="col-sm-2 col-form-label text-lg-right">Part No</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="part_number" class="form-control" id="part_number" placeholder="Part No" >
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group row">
                                     <label for="status" class="col-sm-2 col-form-label text-lg-right">Status</label>
                                     <div class="col-sm-2">
                                         <select name="status" id="status" class="form-control" required>

@@ -7,7 +7,7 @@
     <strong>
         Copyright &copy; {{ Carbon\Carbon::now()->format('Y') }}
         <a href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            JKS Corporation
         </a>.
     </strong>
     All rights reserved.

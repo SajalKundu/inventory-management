@@ -37,7 +37,7 @@
                             <form action="{{ route('a_gallery.update', ['id' => $result->id]) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="rank" class="col-sm-2 control-label text-lg-right">Rank</label>
+                                    <label for="rank" class="col-sm-2 control-label text-lg-right">Numeric Name</label>
                                     <div class="col-sm-2">
                                         <input type="number" class="form-control" id="rank" placeholder="" name="rank" required value="{{ $result->rank }}">
                                     </div>

@@ -18,7 +18,7 @@
                                 <i class="fas fa-arrow-left"></i>
                                 Back
                             </a>
-                            Creditor Details</h3>
+                             Creditor Details</h3>
 
                         </div>
                         <!-- /.card-header -->
@@ -54,12 +54,12 @@
                                         <td>{{ $result->mobile }}</td>
                                     </tr>
                                 @endif
-                                @if($result->address)
+                                {{-- @if($result->address)
                                     <tr>
                                         <th>Address</th>
                                         <td>{!! $result->address !!}</td>
                                     </tr>
-                                @endif
+                                @endif --}}
                                 @if($result->details)
                                     <tr>
                                         <th>Details</th>
@@ -85,13 +85,13 @@
                                 @if($result->deal_date)
                                     <tr>
                                         <th>Deal Date</th>
-                                        <td>{{ \Carbon\Carbon::parse($result->deal_date)->format('d F Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($result->deal_date)->format('d-m-Y') }}</td>
                                     </tr>
                                 @endif
                                 @if($result->payment_date)
                                     <tr>
                                         <th>Payment Date</th>
-                                        <td>{{ \Carbon\Carbon::parse($result->payment_date)->format('d F Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($result->payment_date)->format('d-m-Y') }}</td>
                                     </tr>
                                 @endif
 

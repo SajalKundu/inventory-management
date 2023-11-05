@@ -50,25 +50,20 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="morelink" class="col-sm-2 col-form-label text-lg-right">Know More</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" name="morelink" class="form-control" id="morelink" placeholder="morelink">
-                                    </div>
-                                </div>
+
 
                                 <div class="form-group row">
                                     <label for="details" class="col-sm-2 col-form-label text-lg-right">Details</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-8">
                                         <textarea type="text" class="form-control" id="details" name="details"></textarea>
-                                        <script type="text/javascript">
+                                        {{-- <script type="text/javascript">
                                             CKEDITOR.replace("details",
                                             {
                                                 height:"200",
                                                 width:"100%",
                                                 allowedContent: true,
                                             });
-                                        </script>
+                                        </script> --}}
                                     </div>
                                 </div>
 
@@ -79,14 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Mobile Banner
-                                        <br>
-                                        <span  style="color: red; font-size: 12px;">Banner size 700*450</span></label>
-                                    <div class="col-sm-4">
-                                        <input type="file" class="form-control" id="" name="mobile_images">
-                                    </div>
-                                </div>
+
 
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Status</label>

@@ -18,6 +18,8 @@ class CreateSubCategoriesTable extends Migration
             $table->id();
             $table->foreignIdFor(Category::class)->nullable();
             $table->string('name')->nullable();
+            $table->string('model_name')->nullable();
+            $table->string('part_number')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

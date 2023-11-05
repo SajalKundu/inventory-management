@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="amount" class="col-sm-2 col-form-label text-lg-right">Amount</label>
+                                    <label for="amount" class="col-sm-2 col-form-label text-lg-right">Due Amount</label>
                                     <div class="col-sm-6">
                                         <input type="text" name="amount" class="form-control" id="amount" placeholder="Amount"  value="{{ $result->amount }}" required>
                                     </div>
@@ -75,28 +75,28 @@
                                 <div class="form-group row">
                                     <label for="details" class="col-sm-2 col-form-label text-lg-right">Details</label>
                                     <div class="col-sm-9">
-                                        <textarea type="text" class="form-control" id="details" name="details">{{  $result->details }}</textarea>
-                                        <script type="text/javascript">
+                                        <textarea type="text" class="form-control" id="details" name="details" rows="3">{{  $result->details }}</textarea>
+                                        {{-- <script type="text/javascript">
                                             CKEDITOR.replace("details", {
                                                 height: "300",
                                                 width: "100%",
                                                 allowedContent: true,
                                             });
-                                        </script>
+                                        </script> --}}
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="address" class="col-sm-2 col-form-label text-lg-right">Address</label>
                                     <div class="col-sm-9">
-                                        <textarea type="text" class="form-control" id="address" name="address">{{  $result->address }}</textarea>
-                                        <script type="text/javascript">
+                                        <textarea type="text" class="form-control" id="address" name="address" rows="3">{{  $result->address }}</textarea>
+                                        {{-- <script type="text/javascript">
                                             CKEDITOR.replace("address", {
                                                 height: "300",
                                                 width: "100%",
                                                 allowedContent: true,
                                             });
-                                        </script>
+                                        </script> --}}
                                     </div>
                                 </div>
 

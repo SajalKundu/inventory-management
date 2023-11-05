@@ -53,7 +53,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('creditors.index') }}"
                         class="nav-link @if (request()->is('admin/creditors*')) active @endif">
                         <i class="nav-icon fa fa-credit-card"></i>
@@ -71,13 +71,13 @@
                             Debtors
                         </p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route('admin.product.index') }}" class="nav-link @if(request()->is('admin/product*')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Product
+                            Stocks
                         </p>
                     </a>
                 </li>
@@ -85,7 +85,7 @@
                     <a href="{{ route('admin.sale.index') }}" class="nav-link @if(request()->is('admin/sale*')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Invoice
+                            Sales
                         </p>
                     </a>
                 </li>
@@ -101,7 +101,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.report.sale.index') }}" class="nav-link">
                                 <i class="fas fa-angle-right nav-icon"></i>
-                                <p>Sale</p>
+                                <p>Sale Report</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -137,7 +137,7 @@
                         <li class="nav-item">
                             <a href="{{ route('contacts.company-details.index') }}" class="nav-link  @if (request()->is('admin/contacts/company-details*')) active @endif">
                                 <i class="far fa-address-card nav-icon"></i>
-                                <p>Company Details</p>
+                                <p>Company with Invoice</p>
                             </a>
                         </li>
 

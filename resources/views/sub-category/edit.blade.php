@@ -29,8 +29,22 @@
                                 @csrf
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-2 col-form-label text-lg-right">Name</label>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-6">
                                         <input type="text" name="name" class="form-control" id="name" placeholder="Category name"  value="{{ $subcategory->name }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="model_name" class="col-sm-2 col-form-label text-lg-right">Model Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="model_name" class="form-control" id="model_name" placeholder="Model Name"  value="{{ $subcategory->model_name }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="part_number" class="col-sm-2 col-form-label text-lg-right">Part No</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="part_number" class="form-control" id="part_number" placeholder="Part No"  value="{{ $subcategory->part_number }}">
                                     </div>
                                 </div>
 

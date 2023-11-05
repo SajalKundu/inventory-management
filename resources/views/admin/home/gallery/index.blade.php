@@ -26,13 +26,13 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL</th>
-                                        <th>Rank</th>
-                                        <th>Title</th>
-                                        <th style="text-align: center;">Image</th>
-                                        <th style="text-align: center;">Status</th>
-                                        <th style="text-align: center;">Edit</th>
-                                        <th style="text-align: center;">Delete</th>
+                                        <th style="width: 10%">SL</th>
+                                        <th style="width: 10%">Numeric Name</th>
+                                        <th style="width: 30%">Title</th>
+                                        <th style="text-align: center; width: 20%">Image</th>
+                                        <th style="text-align: center; width: 10%">Status</th>
+                                        <th style="text-align: center;width: 10%">Edit</th>
+                                        <th style="text-align: center;width: 10%">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>

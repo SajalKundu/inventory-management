@@ -33,11 +33,13 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL.</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th width="5%" style="text-align: center;">SL.</th>
+                                        <th width="30%" style="text-align: center;">Name</th>
+                                        <th width="25%" style="text-align: center;">Model Name</th>
+                                        <th width="25%" style="text-align: center;">Part No</th>
+                                        <th width="5%" style="text-align: center;">Status</th>
+                                        <th width="5%" style="text-align: center;">Edit</th>
+                                        <th width="5%" style="text-align: center;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +47,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $subcategory->name }}</td>
+                                        <td>{{ $subcategory->model_name }}</td>
+                                        <td>{{ $subcategory->part_number }}</td>
                                         <td style="text-align: center;">
                                             @if ($subcategory->status == 'active')
                                                 <a href="Javascript:status('{{ route('admin.sub-category.change-status', ['id' => $subcategory->id, 'status' => 'inactive']) }}')">

@@ -35,8 +35,7 @@
                     var d = new Date();
                     document.write(d.getFullYear());
                 </script>
-                <a href="#">Inventory</a> All Rights Reserved. Designed by <a href="#">Team
-                    Inventory</a>
+                <a href="#">Inventory</a> All Rights Reserved.
             </p>
         </div>
         <a id="scrool-top" href="#"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>

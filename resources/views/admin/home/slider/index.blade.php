@@ -27,9 +27,7 @@
                                         <th>SL</th>
                                         <th>Rank</th>
                                         <th>Title</th>
-                                        <th style="text-align: center;">Link</th>
                                         <th style="text-align: center;">Image</th>
-                                        <th style="text-align: center;">H.Status</th>
                                         <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Edit</th>
                                         <th style="text-align: center;">Delete</th>
@@ -41,24 +39,13 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $slider->rank }}</td>
 							            <td>{{ $slider->title }}</td>
-                                        <td style="text-align: center;">@if($slider->morelink)
-                                            <a target="_blank" href="{{ $slider->morelinkweb }}">{{ $slider->morelink }}</a>
-                                            @endif
-                                        </td>
+
 
                                         <td style="text-align: center;">@if($slider->image)
                                             <a href="{{ asset($slider->image_path.$slider->image) }}" target="_blank"><img src="{{ asset($slider->image_path.$slider->thumb) }}" width="50px" height="25px"></a>
                                             @endif
                                         </td>
-                                        <td style="text-align: center;">
-                                            @if($slider->hstatus)
-                                            <a
-                                            href="JavaScript:hstatus('{{ route('a_slider.Status',['id' => $slider->id, 'value' => $slider->hstatus, 'status' => 'hstatus' ]) }}')"> <img src="{{ asset('backend/images/yes.gif') }}"></a>
-                                            @else
-                                            <a
-                                            href="JavaScript:hstatus('{{ route('a_slider.Status',['id' => $slider->id, 'value' => $slider->hstatus, 'status' => 'hstatus']) }}')"> <img src="{{ asset('backend/images/no.gif') }}"></a>
-                                            @endif
-                                        </td>
+
 
                                         <td style="text-align: center;">@if($slider->status)
                                             <a

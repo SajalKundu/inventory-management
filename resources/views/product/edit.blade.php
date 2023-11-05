@@ -20,7 +20,7 @@
                                     <i class="fas fa-arrow-left"></i>
                                     Back
                                 </a>
-                                Edit Product
+                                Edit  Stock
                             </h3>
                         </div>
                         <!-- /.card-header -->

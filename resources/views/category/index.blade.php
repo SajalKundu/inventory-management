@@ -27,12 +27,12 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL.</th>
-                                        <th>Name</th>
-                                        <th>Sub</th>
-                                        <th>Status</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th width="10%">SL.</th>
+                                        <th width="40%">Items</th>
+                                        <th width="20%" style="text-align: center;">Sub</th>
+                                        <th width="10%">Status</th>
+                                        <th width="10%">Edit</th>
+                                        <th width="10%">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>

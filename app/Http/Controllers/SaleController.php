@@ -41,10 +41,10 @@ class SaleController extends Controller
         $request->validate([
             'invoice_date' => 'required|date',
             'customer_id' => 'required|exists:customers,id',
-            'mobile' => 'required|string|min:11|max:11',
-            'customer_address' => 'required|string',
+            'mobile' => 'nullable|string|min:11|max:11',
+            'customer_address' => 'nullable|string',
             'grand_total_amount' => 'required|numeric',
-            'advanced_amount' => 'required|numeric',
+            'advanced_amount' => 'nullable|numeric',
             'due_amount' => 'required|numeric',
             'product_id' => 'required|array',
             'product_id.*' => 'required|exists:products,id',
@@ -67,6 +67,10 @@ class SaleController extends Controller
         $sale->customer_address = $request->customer_address;
         $sale->grand_total_amount = $request->grand_total_amount;
         $sale->advanced_amount = $request->advanced_amount;
+        if($request->advanced_amount == null){
+            $sale->advanced_amount = 0;
+        }
+
         $sale->due_amount = $request->due_amount;
         $sale->save();
 

@@ -54,28 +54,28 @@
                                 <div class="form-group row">
                                     <label for="mobile" class="col-sm-2 col-form-label text-lg-right">Mobile</label>
                                     <div class="col-sm-8">
-                                        <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile" value="{{ $customer->mobile }}">
+                                        <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" value="{{ $customer->mobile }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="address" class="col-sm-2 col-form-label text-lg-right">Address</label>
-                                    <div class="col-sm-10">
-                                        <textarea type="text" class="form-control" id="address" name="address">{{ $customer->address }}</textarea>
-                                        <script type="text/javascript">
+                                    <div class="col-sm-8">
+                                        <textarea type="text" class="form-control" id="address" name="address" rows="3">{{ $customer->address }}</textarea>
+                                        {{-- <script type="text/javascript">
                                             CKEDITOR.replace("address",
                                             {
                                                 height:"200",
                                                 width:"100%",
                                                 allowedContent: true,
                                             });
-                                        </script>
+                                        </script> --}}
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="status" class="col-sm-2 col-form-label text-lg-right">Status</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-2">
                                         <select name="status" id="status" class="form-control" required>
                                             <option value="active" @if($customer->status == 'active') selected @endif>Active</option>
                                             <option value="inactive" @if($customer->status == 'inactive') selected @endif>Inactive</option>

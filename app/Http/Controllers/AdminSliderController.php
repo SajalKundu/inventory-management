@@ -6,7 +6,7 @@ use App\Models\Home_Slider;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class AdminSliderController extends Controller
 {
@@ -38,7 +38,6 @@ class AdminSliderController extends Controller
         try {
             $postdata['rank'] = $request->input('rank');
             $postdata['title'] = $request->input('title');
-            $postdata['morelink'] = $request->input('morelink');
             $postdata['details'] = $request->input('details');
             $postdata['status'] = $request->input('status');
 
@@ -57,15 +56,7 @@ class AdminSliderController extends Controller
 
             }
 
-            if ($request->hasFile('mobile_images')) {
-                $image = $request->file('mobile_images');
-                $path = $postdata['image_path'];
-                $imagename = time() . '_' . $image->getClientOriginalname();
-                $mobile = Image::make($image)->resize(700, 450);
-                $mobile->save($path . '/' . $imagename);
-                $postdata['mobile_images'] = $imagename;
 
-            }
 
             Home_Slider::create($postdata);
 
@@ -96,7 +87,6 @@ class AdminSliderController extends Controller
              try {
                  $postdata['rank'] = $request->input('rank');
                  $postdata['title'] = $request->input('title');
-                 $postdata['morelink'] = $request->input('morelink');
                  $postdata['details'] = $request->input('details');
                  $postdata['status'] = $request->input('status');
 
@@ -125,7 +115,7 @@ class AdminSliderController extends Controller
                              unlink($delete2);
                          }
                      }
-                 } elseif ($request->input('del_image')) {
+                 } elseif ($request->input('del_image')=='1') {
 
                      if ($request->input('old_image')) {
                          $delete1 = $postdata['image_path'] . $request->input('old_image');
@@ -139,36 +129,6 @@ class AdminSliderController extends Controller
                      }
                      $postdata['image'] = '';
                      $postdata['thumb'] = '';
-                 }
-
-
-
-                 if ($request->hasFile('mobile_images')) {
-
-                     $image = $request->file('mobile_images');
-
-                     $path = $postdata['image_path'];
-                     $imagename = time() . '_' . $image->getClientOriginalname();
-                     $mobile = Image::make($image)->resize(700, 450);
-
-                     $mobile->save($path . '/' . $imagename);
-                     $postdata['mobile_images'] = $imagename;
-
-                     if ($request->input('old_mobile_images')) {
-                         $delete1 = $postdata['image_path'] .$request->input('old_mobile_images');
-                         if (File::exists($delete1)) {
-                             unlink($delete1);
-                         }
-                     }
-                 } elseif ($request->input('del_mobile_images')) {
-
-                     if ($request->input('old_mobile_images')) {
-                         $delete1 = $postdata['image_path'] . $request->input('old_mobile_images');
-                         if (File::exists($delete1)) {
-                             unlink($delete1);
-                         }
-                     }
-                     $postdata['mobile_images'] = '';
                  }
 
                  $result = Home_Slider::where('id', $id)->update($postdata);
@@ -191,7 +151,6 @@ class AdminSliderController extends Controller
              if ($slider) {
                  $image_old = $slider->image_path . $slider->image;
                  $thumb_old = $slider->image_path . $slider->thumb;
-                 $mobile_images_old = $slider->image_path . $slider->mobile_images;
 
                  if (File::exists($image_old) && $slider->image) {
                      unlink($image_old);
@@ -199,9 +158,7 @@ class AdminSliderController extends Controller
                  if (File::exists($thumb_old) && $slider->thumb) {
                      unlink($thumb_old);
                  }
-                 if (File::exists($mobile_images_old) && $slider->mobile_images) {
-                     unlink($mobile_images_old);
-                 }
+
 
                  $slider->delete();
              }

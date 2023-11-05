@@ -50,21 +50,15 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-2 control-label text-lg-right">Know More</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" name="morelink" placeholder="Link name" value="{{ $slider->morelink }}">
-                                    </div>
 
-                                </div>
 
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Details</label>
                                     <div class="col-sm-9">
                                         <textarea type="text" class="form-control" id="details" name="details">{{ $slider->details }}</textarea>
-                                        <script type="text/javascript">
+                                        {{-- <script type="text/javascript">
                                             CKEDITOR.replace("details", {height:"200", width:"100%"});
-                                        </script>
+                                        </script> --}}
                                     </div>
                                 </div>
 
@@ -72,6 +66,7 @@
                                     <label for="inputPassword3" class="col-sm-2 control-label text-lg-right text-lg-right">Desktop Banner</label>
                                     <div class="col-sm-4">
                                         <input type="file" class="form-control" id="" name="image" >
+                                        <input type="hidden" name="old_image" value="{{ $slider->image }}">
                                         @if($slider->image)
 
 
@@ -90,27 +85,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="image" class="col-sm-2 control-label text-lg-right">Mobile Banner
-                                        <br>
-                                        <span  style="color: red; font-size: 12px;">Banner size 700*550</span></label>
-                                    <div class="col-sm-5 pl-0">
-                                        <div class="col-sm-12">
-                                            <input type="file" class="form-control" id="mobile_images" name="mobile_images" >
-                                            <input type="hidden" class="col-sm-8" name="old_mobile_images" value="{{ $slider->mobile_images }}" readonly> &nbsp; &nbsp; &nbsp;
-                                        </div>
-                                        @if($slider->mobile_images)
-                                            <div class="col-sm-12">
-                                                <div class="col-sm-6">
-                                                    <input type="checkbox" class="flat-blue" name="del_mobile_images" value="1">&nbsp;Delete Current Mobile Image
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <img class="img img-responsive" src="{{ asset($slider->image_path.$slider->mobile_images) }}" width="100" >
-                                                </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
+
 
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Status</label>

@@ -41,7 +41,9 @@
 
                 </tr>
                 <tr>
-                    <td align=center style="color:#1fa337" height="100"></td>
+                    <td align=center style="color:#1fa337" height="100">
+                        <h2>{{ $contact->about_company }}</h2>
+                    </td>
                 </tr>
 
             </table>

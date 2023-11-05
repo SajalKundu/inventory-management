@@ -118,7 +118,6 @@ Route::group([
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::post('update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('destroy');
-        Route::get('/status/{id}/{value}/{status}', 'sliderStatus')->name('Status');
 
     });
     Route::controller(CustomerController::class)->prefix('customer')->name('admin.customer.')->group(function(){

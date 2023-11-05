@@ -74,11 +74,11 @@
                         <!-- /.col -->
                     </div>
                 </form>
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <p class="mb-1">
                         <a href="{{ route('password.request') }}">I forgot my password</a>
                     </p>
-                @endif
+                @endif --}}
             </div>
             <!-- /.card-body -->
         </div>

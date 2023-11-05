@@ -24,14 +24,15 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL</th>
-                                        <th>Name</th>
-                                        <th>Company</th>
-                                        <th style="text-align: center;">Image/File</th>
-                                        <th style="text-align: center;">Recovery Date</th>
-                                        <th style="text-align: center;">View</th>
-                                        <th style="text-align: center;">Edit</th>
-                                        <th style="text-align: center;">Delete</th>
+                                        <th width="5%">SL</th>
+                                        <th width="25%">Name</th>
+                                        <th width="25%">Company</th>
+                                        <th width="10%">Due Amount</th>
+                                        <th width="10%" style="text-align: center;">Image/File</th>
+                                        <th width="10%" style="text-align: center;">Recovery Date</th>
+                                        <th width="5%" style="text-align: center;">View</th>
+                                        <th width="5%" style="text-align: center;">Edit</th>
+                                        <th width="5%" style="text-align: center;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,12 +41,13 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $result->name }}</td>
 							            <td>{{ $result->company }}</td>
+							            <td>{{ $result->amount }}</td>
 
                                         <td style="text-align: center;">@if($result->file)
                                             <a href="{{ asset($result->path.$result->file) }}" target="_blank">View</a>
                                             @endif
                                         </td>
-                                        <td style="text-align: center;">{{ $result->recovery_date }}</td>
+                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->recovery_date)->format('d-m-Y') }}</td>
                                         <td style="text-align: center;">
                                             <a href="{{ route('debtors.show', ['id' => $result->id]) }}">
                                                 <img src="{{ asset('backend/images/details.gif') }}">

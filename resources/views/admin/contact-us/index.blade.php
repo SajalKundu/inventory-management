@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="about_company" class="col-sm-2 control-label text-lg-right">About Company:</label>
+                                <label for="about_company" class="col-sm-2 control-label text-lg-right">Dashboard Title:</label>
                                 <div class="col-sm-8">
                                     <textarea type="text" class="form-control" id="about_company" name="about_company" rows="5" cols="30">{{ $contact_us->about_company }}</textarea>
                                 </div>
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">Image:</label>
+                                <label for="inputPassword3" class="col-sm-2 control-label text-lg-right">About us Image:</label>
                                 <div class="col-sm-5 pl-0">
                                     <div class="col-sm-12">
                                         <input type="file" class="form-control" id="banner" name="banner" >
