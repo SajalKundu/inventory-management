@@ -93,7 +93,7 @@ class SaleController extends Controller
             $product->save();
 
 
-            $product_name .= Product::where('id', $product_id)->first()->name.', ';
+            $product_name .= 'Product Name: '.Product::where('id', $product_id)->first()->name.', Sold Quantity: '.$request->sale_quantity[$key].', ';
 
 
 
@@ -104,17 +104,23 @@ class SaleController extends Controller
             $productStcock->save();
         }
 
-        $details = 'Invoice Id: '.$request->invoice_id.' and Product Name: '.$product_name;
+        if($request->due_amount > 0){
+            $details = 'Invoice Id: '.$request->invoice_id.' and '.$product_name;
+            $debitor = new Debtors();
+            $debitor->name = $customer->name;
+            $debitor->mobile = $customer->mobile;
+            $debitor->address = $request->customer_address;
+            $debitor->details = $details;
+            $debitor->email = $customer->email;
+            $debitor->amount = $request->due_amount;
+            $debitor->deal_date = Carbon::now()->format('Y-m-d');
+            $debitor->save();
+        }
 
-        $debitor = new Debtors();
-        $debitor->name = $customer->name;
-        $debitor->mobile = $customer->mobile;
-        $debitor->address = $request->customer_address;
-        $debitor->details = $details;
-        $debitor->email = $customer->email;
-        $debitor->amount = $request->due_amount;
-        $debitor->deal_date = Carbon::now()->format('Y-m-d');
-        $debitor->save();
+
+        if($request->btn == 'Make Invoice'){
+            return redirect()->route('admin.sale.print', $request->invoice_id);
+        }
 
         return redirect()->route('admin.sale.index')->with('msg', 'Sale created successfully');
     }

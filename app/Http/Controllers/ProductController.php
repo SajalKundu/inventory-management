@@ -14,7 +14,12 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('id', 'asc')->get();
-        return view('product.index', compact('products'));
+        $total_buy_price = 0;
+        foreach($products as $product){
+            $total_buy_price += $product->price*$product->available_quantity;
+        }
+
+        return view('product.index', compact('products', 'total_buy_price'));
     }
 
     public function create()
@@ -184,16 +189,43 @@ class ProductController extends Controller
     public function addStock(Request $request)
     {
         $request->validate([
+            'buy_price' => 'required|numeric',
             'available_quantity'   => 'required|numeric',
         ]);
 
         $product = Product::find($request->product_id);
+
+        $total_buy_price = $product->price*$product->available_quantity+$request->buy_price;
+        $avarage_buy_price = $total_buy_price/($product->available_quantity + $request->available_quantity);
+
         $product->available_quantity = $product->available_quantity + $request->available_quantity;
+        $product->price = $avarage_buy_price;
         if($product->save()){
             $stock = new ProductStock();
             $stock->product_id = $product->id;
             $stock->qunatity   = $request->available_quantity;
             $stock->stock_type = 'add';
+            $stock->save();
+            return redirect()->route('admin.product.index')->with('msg', 'Stock added successfully');
+        }else{
+            return redirect()->back()->with('emsg', 'Something went wrong');
+        }
+
+    }
+
+    public function subStock(Request $request)
+    {
+        $request->validate([
+            'available_quantity'   => 'required|numeric',
+        ]);
+
+        $product = Product::find($request->product_id);
+        $product->available_quantity = $product->available_quantity - $request->available_quantity;
+        if($product->save()){
+            $stock = new ProductStock();
+            $stock->product_id = $product->id;
+            $stock->qunatity   = $request->available_quantity;
+            $stock->stock_type = 'sub';
             $stock->save();
             return redirect()->route('admin.product.index')->with('msg', 'Stock added successfully');
         }else{

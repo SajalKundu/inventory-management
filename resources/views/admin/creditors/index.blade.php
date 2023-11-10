@@ -48,8 +48,8 @@
                                             <a href="{{ asset($result->path.$result->file) }}" target="_blank">View</a>
                                             @endif
                                         </td>
-                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->date)->format('d-m-Y') }}</td>
-                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->payment_date)->format('d-m-Y') }}</td>
+                                        <td style="text-align: center;">{{ ($result->deal_date != null) ? Carbon\Carbon::parse($result->deal_date)->format('d-m-Y') : '' }}</td>
+                                        <td style="text-align: center;">{{ ($result->payment_date != null) ? Carbon\Carbon::parse($result->payment_date)->format('d-m-Y') : '' }}</td>
                                         <td style="text-align: center;">
                                             <a href="{{ route('creditors.show', ['id' => $result->id]) }}">
                                                 <img src="{{ asset('backend/images/details.gif') }}">

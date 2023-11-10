@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{ asset('backend/plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 <style>
-    .removebtn{
+    .removebtn1{
         margin-top: 32px;
     }
 </style>
@@ -211,13 +211,13 @@
                                             <input type="number" name="total_price[]" serial="1" class="form-control product_total_price" id="total_price_1" placeholder="Total Price" required readonly>
                                         </div>
                                     </div>
-                                    <div class="col-md-1">
+                                    {{--  <div class="col-md-1">
                                         <div class="form-group">
-                                            <button type="button" class="removebtn btn btn-danger btn-sm" id="removeBtn" serial="1">
+                                            <button type="button" class="removebtn removebtn1 btn btn-danger btn-sm" id="removeBtn" serial="1">
                                                 <i class="fas fa-minus"></i>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div>  --}}
                                 </div>
 
                                 <div id="addedRows"></div>
@@ -246,7 +246,9 @@
                                 <div class="form-group row">
                                     <label for="home_status"></label>
                                     <div class="col-sm-4">
-                                        <button type="submit" class="btn btn-success">Sale</button>
+                                        <input type="submit" class="btn btn-success" name="btn" value="Sale">
+                                        <input type="submit" class="btn btn-success" name="btn" value="Make Invoice">
+
                                     </div>
                                 </div>
                             </form>
@@ -317,8 +319,10 @@
                       product_id : product_id
                    },
                    success : function(results) {
-                      $("#sale_price_"+serial).val(results.product.sale_price);
-                      $("#quantity_"+serial).val(results.product.available_quantity);
+                        $("#sale_price_"+serial).val(results.product.sale_price);
+                        $("#quantity_"+serial).val(results.product.available_quantity);
+                        $("#sale_quantity_"+serial).val(0);
+                        $("#total_price_"+serial).val(0);
                    }
               });
          });
@@ -327,7 +331,7 @@
         function addMoreRows(frm) {
             var cures = <?php echo json_encode( $products) ?>;
             rowCount ++;
-            var html = '<div class="row" id="registration'+rowCount+'"><div class="col-md-2"><div class="form-group "><label for="product_id[]" class="control-label">Product</label><select class="form-control product_id" serial="'+rowCount+'" id="product_id[]" name="product_id[]"><option value="">Select Product</option><?php foreach($products as $key=>$value){ ?><option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option> <?php } ?></select></div></div><div class="col-md-2"><div class="form-group "><label for="sale_price[]" class="control-label">Sale Price</label><input class="form-control sale_price" id="sale_price_'+rowCount+'" name="sale_price[]" type="text"  placeholder="Sale Price"></div></div><div class="col-md-2"><div class="form-group "><label for="quantity" class="control-label">Quantity</label><input class="form-control quantity" serial="'+rowCount+'" name="quantity[]" type="text" id="quantity_'+rowCount+'" placeholder="Quantity" readonly></div></div><div class="col-md-2"><div class="form-group"><label for="sale_quantity">Sale Quantity</label><input type="number" name="sale_quantity[]" serial="'+rowCount+'" class="sale_quantity form-control" id="sale_quantity_'+rowCount+'" placeholder="Sale Quantity"></div></div><div class="col-md-3"><div class="form-group "><label for="total_price[]" class="control-label">Total Price</label><input class="form-control product_total_price" readonly name="total_price[]" type="text" id="total_price_'+rowCount+'"></div></div><div class="col-md-1"><button type="button" class="removebtn btn btn-danger btn-sm" serial="'+rowCount+'" title="'+rowCount+'"> <i class="fas fa-minus"></i></button></div></div>';
+            var html = '<div class="row" id="registration'+rowCount+'"><div class="col-md-2"><div class="form-group "><select class="form-control product_id" serial="'+rowCount+'" id="product_id[]" name="product_id[]"><option value="">Select Product</option><?php foreach($products as $key=>$value){ ?><option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option> <?php } ?></select></div></div><div class="col-md-2"><div class="form-group "><input class="form-control sale_price" id="sale_price_'+rowCount+'" name="sale_price[]" type="text"  placeholder="Sale Price"></div></div><div class="col-md-2"><div class="form-group "><input class="form-control quantity" serial="'+rowCount+'" name="quantity[]" type="text" id="quantity_'+rowCount+'" placeholder="Quantity" readonly></div></div><div class="col-md-2"><div class="form-group"><input type="number" name="sale_quantity[]" serial="'+rowCount+'" class="sale_quantity form-control" id="sale_quantity_'+rowCount+'" placeholder="Sale Quantity"></div></div><div class="col-md-3"><div class="form-group "><input class="form-control product_total_price" readonly name="total_price[]" type="text" id="total_price_'+rowCount+'"></div></div><div class="col-md-1"><button type="button" class="removebtn btn btn-danger btn-sm" serial="'+rowCount+'" title="'+rowCount+'"> <i class="fas fa-minus"></i></button></div></div>';
 
             $('#addedRows').append(html);
         }
@@ -341,6 +345,19 @@
         var sum = 0;
         $(document).on('keyup', '.sale_quantity', function(){
             var serial = $(this).attr('serial');
+            var sale_quantity = $(this).val();
+            var stock_quantity = $("#quantity_"+serial).val();
+
+            if(sale_quantity > stock_quantity){
+                alert('Sale quantity can not be greater than stock quantity');
+                $("#sale_quantity_"+serial).val('');
+                $("#sale_quantity_"+serial).focus();
+                $("#total_price_"+serial).val(0);
+                total_cal();
+                return false;
+            }
+
+
             var sale_price =  $('#sale_price_'+serial).val();
             if(sale_price == '' || sale_price == null){
                 alert('Please enter sale price first');
@@ -378,7 +395,7 @@
             $("#due_amount").val(due);
          }
 
-         function total_cal(){
+        function total_cal(){
             sum = 0;
             $(".product_total_price").each(function() {
                 sum += Number($(this).val());

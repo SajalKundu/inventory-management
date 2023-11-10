@@ -160,6 +160,7 @@ Route::group([
         Route::get('change-status/{id}/{status}', 'changeStatus')->name('change-status');
 
         Route::post('add-stock', 'addStock')->name('add-stock');
+        Route::post('sub-stock', 'subStock')->name('sub-stock');
         Route::get('view-stock/{id}', 'viewStock')->name('view-stock');
         Route::post('stock-report-download', 'stockReportDownload')->name('stock-report-download');
     });

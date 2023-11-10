@@ -52,25 +52,33 @@
                                                 <th>Name</th>
                                                 <th>Company</th>
                                                 <th>Amount</th>
-                                                <th>Email</th>
+                                                <th>Items</th>
                                                 <th>Mobile</th>
                                                 <th>Address</th>
                                                 <th>Deal Date</th>
+                                                <th>Recovery Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                           @foreach($debtors as $item)
                                             <tr>
-                                              <td>{{ $loop->iteration }}</td>
-                                              <td>{{ $item->name }}</td>
-                                              <td>{{ $item->company }}</td>
-                                              <td>{{ $item->amount }}</td>
-                                              <td>{{ $item->email }}</td>
-                                              <td>{{ $item->mobile }}</td>
-                                              <td>{!! $item->address !!}</td>
-                                              <td>
-                                                    {{ Carbon\Carbon::parse($item->deal_date)->format('Y-m-d') }}
-                                              </td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->company }}</td>
+                                                <td>{{ $item->amount }}</td>
+                                                <td>{!! $item->details !!}</td>
+                                                <td>{{ $item->mobile }}</td>
+                                                <td>{!! $item->address !!}</td>
+                                                <td>
+                                                    @if($item->deal_date)
+                                                        {{ Carbon\Carbon::parse($item->deal_date)->format('Y-m-d') }}
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($item->recovery_date)
+                                                        {{ Carbon\Carbon::parse($item->recovery_date)->format('Y-m-d') }}
+                                                    @endif
+                                                </td>
                                             </tr>
                                           @endforeach
                                         </tbody>

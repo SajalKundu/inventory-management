@@ -31,7 +31,7 @@ class CreditorsController extends Controller
             // 'address'     =>'required',
             'file'        =>'nullable|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png,svg,zib,rar,zip',
             'deal_date'   =>'required',
-            'payment_date'=>'required',
+            'payment_date'=>'nullable',
         ]);
 
         $path = 'assets/creditors/';
@@ -93,7 +93,7 @@ class CreditorsController extends Controller
             'details'     =>'nullable',
             'file'        =>'nullable|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png,svg,zib,rar,zip',
             'deal_date'   =>'required',
-            'payment_date'=>'required',
+            'payment_date'=>'nullable',
         ]);
 
         $path = 'assets/creditors/';

@@ -52,7 +52,6 @@
                                                 <th>Name</th>
                                                 <th>Company</th>
                                                 <th>Amount</th>
-                                                <th>Phone</th>
                                                 <th>Mobile</th>
                                                 <th>Address</th>
                                                 <th>Deal Date</th>
@@ -66,7 +65,6 @@
                                               <td>{{ $item->name }}</td>
                                               <td>{{ $item->company }}</td>
                                               <td>{{ $item->amount }}</td>
-                                              <td>{{ $item->phone }}</td>
                                               <td>{{ $item->mobile }}</td>
                                               <td>{!! $item->address !!}</td>
                                               <td>

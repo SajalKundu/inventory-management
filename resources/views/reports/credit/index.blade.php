@@ -69,7 +69,6 @@
                                             <th>Name</th>
                                             <th>Company</th>
                                             <th>Amount</th>
-                                            <th>Phone</th>
                                             <th>Mobile</th>
                                             <th>Address</th>
                                             <th>Deal Date</th>
@@ -79,7 +78,7 @@
                                         <tbody>
 
                                             <tr>
-                                                <td colspan="8" class="text-center"><strong>No Data Found</strong></td>
+                                                <td colspan="7" class="text-center"><strong>No Data Found</strong></td>
                                             </tr>
 
                                         </tbody>

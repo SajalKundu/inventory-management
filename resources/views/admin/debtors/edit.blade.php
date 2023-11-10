@@ -45,16 +45,23 @@
                                 <div class="form-group row">
                                     <label for="amount" class="col-sm-2 col-form-label text-lg-right">Due Amount</label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="amount" class="form-control" id="amount" placeholder="Amount"  value="{{ $result->amount }}" required>
+                                        <input type="text" name="amount" class="form-control" id="amount" placeholder="Amount"  value="{{ $result->amount }}" readonly>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
+                                    <label for="recovery_amount" class="col-sm-2 col-form-label text-lg-right">Recovery Amount</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="recovery_amount" class="form-control" id="recovery_amount" placeholder="Recovery Amount"  value="{{ $result->recovery_amount }}" required>
+                                    </div>
+                                </div>
+
+                                {{--  <div class="form-group row">
                                     <label for="email" class="col-sm-2 col-form-label text-lg-right">Email</label>
                                     <div class="col-sm-8">
                                         <input type="text" name="email" class="form-control" id="email" placeholder="Email"  value="{{ $result->email }}">
                                     </div>
-                                </div>
+                                </div>  --}}
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-sm-2 col-form-label text-lg-right">Phone</label>
@@ -164,7 +171,7 @@
                                     <label for="payment_date" class="col-sm-2 col-form-label text-lg-right">Recovery Date</label>
                                     <div class="col-sm-6">
                                         <input type="date" name="recovery_date" class="form-control"
-                                            id="recovery_date" placeholder="Recovery Date" value="{{ $result->recovery_date }}" required>
+                                            id="recovery_date" placeholder="Recovery Date" value="{{ $result->recovery_date }}">
                                     </div>
                                 </div>
 

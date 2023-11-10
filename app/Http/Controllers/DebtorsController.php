@@ -125,9 +125,12 @@ class DebtorsController extends Controller
             $result->file      = $result->file;
         }
 
+        $due_amount = $result->amount - $request->recovery_amount;
+
         $result->name    = $request->name;
         $result->company = $request->company;
-        $result->amount  = $request->amount;
+        $result->amount  = $due_amount;
+        $result->recovery_amount  = $request->recovery_amount;
         $result->phone   = $request->phone;
         $result->mobile   = $request->mobile;
         $result->email   = $request->email;

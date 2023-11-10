@@ -136,7 +136,7 @@
                                         <label for="recovery_date" class="col-sm-2 col-form-label text-lg-right">Recovery Date</label>
                                         <div class="col-sm-6">
                                             <input type="date" name="recovery_date" class="form-control"
-                                                id="recovery_date" placeholder="Recovery Date" required>
+                                                id="recovery_date" placeholder="Recovery Date">
                                         </div>
                                     </div>
 

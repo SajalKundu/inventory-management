@@ -16,7 +16,7 @@
                             <div class="card-header">
                                 <h3 class="card-title"> Stocks</h3>
                                 <div class="card-tools">
-                                    <h2 class="btn btn-success">Total Buy Price: {{ $products->sum('price') }}</h2>
+                                    <h2 class="btn btn-success">Total Buy Price: {{ $total_buy_price }}</h2>
                                     <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-sm">
                                         <i class="fas fa-plus"></i>
                                         Add New
@@ -78,12 +78,48 @@
                                                                         @csrf
                                                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                                                                         <div class="form-group row">
+                                                                            <label for="buy_price">Total Buy Price</label>
+                                                                            <input type="number" class="form-control" name="buy_price" id="buy_price" required>
+                                                                        </div>
+                                                                        <div class="form-group row">
                                                                             <label for="available_quantity">Quantity</label>
                                                                             <input type="number" class="form-control" name="available_quantity" id="available_quantity" required>
                                                                         </div>
                                                                         <div class="form-group row">
                                                                             <label for="button"></label>
                                                                             <button type="submit" class="btn btn-success btn-block btn-sm">Add</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModalMinus-{{ $product->id }}">
+                                                        <i class="fas fa-minus"></i>
+                                                    </a>
+                                                    <div class="modal fade" id="myModalMinus-{{ $product->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Sub Stock</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+                                                                </div>
+
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body">
+                                                                    <form action="{{ route('admin.product.sub-stock') }}" method="post">
+                                                                        @csrf
+                                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                                        <div class="form-group row">
+                                                                            <label for="available_quantity">Quantity</label>
+                                                                            <input type="number" class="form-control" name="available_quantity" id="available_quantity" required>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label for="button"></label>
+                                                                            <button type="submit" class="btn btn-success btn-block btn-sm">Sub</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>

@@ -69,16 +69,17 @@
                                             <th>Name</th>
                                             <th>Company</th>
                                             <th>Amount</th>
-                                            <th>Email</th>
+                                            <th>Items</th>
                                             <th>Mobile</th>
                                             <th>Address</th>
                                             <th>Deal Date</th>
+                                            <th>Recovery Date</th>
                                           </tr>
                                         </thead>
                                         <tbody>
 
                                             <tr>
-                                                <td colspan="7" class="text-center"><strong>No Data Found</strong></td>
+                                                <td colspan="8" class="text-center"><strong>No Data Found</strong></td>
                                             </tr>
 
                                         </tbody>

@@ -47,7 +47,7 @@
                                             <a href="{{ asset($result->path.$result->file) }}" target="_blank">View</a>
                                             @endif
                                         </td>
-                                        <td style="text-align: center;">{{ \Carbon\Carbon::parse($result->recovery_date)->format('d-m-Y') }}</td>
+                                        <td style="text-align: center;">{{ ($result->recovery_date != null) ? Carbon\Carbon::parse($result->recovery_date)->format('d-m-Y') : '' }}</td>
                                         <td style="text-align: center;">
                                             <a href="{{ route('debtors.show', ['id' => $result->id]) }}">
                                                 <img src="{{ asset('backend/images/details.gif') }}">

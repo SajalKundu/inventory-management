@@ -97,16 +97,16 @@
           </tr>
         @endforeach
         <tr>
-          <td colspan="5" style="text-align: right;">Total</td>
+          <td colspan="4" style="text-align: right;">Total</td>
           <td>{{ $invoice_info->grand_total_amount }}</td>
         </tr>
         <tr>
-          <td colspan="5" style="text-align: right;">Advanced</td>
+          <td colspan="4" style="text-align: right;">Advanced</td>
           <td>{{ $invoice_info->advanced_amount }}</td>
         </tr>
 
         <tr>
-          <td colspan="5" style="text-align: right;">Due</td>
+          <td colspan="4" style="text-align: right;">Due</td>
           <td>{{ $invoice_info->due_amount }}</td>
         </tr>
 

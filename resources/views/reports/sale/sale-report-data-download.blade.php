@@ -81,6 +81,7 @@
             <thead>
                 <tr>
                 <th>SL.</th>
+                <th>Customer</th>
                 <th>Description</th>
                 <th>Buy Price</th>
                 <th>Sale Price</th>
@@ -93,6 +94,7 @@
                 @foreach($sales as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->sale->customer_name ?? '' }}</td>
                     <td>{{ $item->product_name }}</td>
                     <td>{{ $item->buy_price_price }}</td>
                     <td>{{ $item->sale_price }}</td>

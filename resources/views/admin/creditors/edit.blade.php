@@ -167,7 +167,7 @@
                                     <label for="payment_date" class="col-sm-2 col-form-label text-lg-right">Payment Date</label>
                                     <div class="col-sm-6">
                                         <input type="date" name="payment_date" class="form-control"
-                                            id="payment_date" placeholder="Payment Date" value="{{ $result->payment_date }}" required>
+                                            id="payment_date" placeholder="Payment Date" value="{{ $result->payment_date }}">
                                     </div>
                                 </div>
 
