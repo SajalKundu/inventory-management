@@ -36,8 +36,8 @@ class CreditorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMap
             $creditor->email,
             $creditor->mobile,
             strip_tags($creditor->address),
-            Carbon::parse($creditor->deal_date)->format('Y-m-d'),
-            Carbon::parse($creditor->payment_date)->format('Y-m-d'),
+            ($creditor->deal_date != null) ? Carbon::parse($creditor->deal_date)->format('d-m-Y') : '',
+            ($creditor->payment_date != null) ? Carbon::parse($creditor->payment_date)->format('d-m-Y') : '',
         ];
     }
 
@@ -58,7 +58,7 @@ class CreditorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMap
 
     public function query()
     {
-        return Creditors::query()->where('created_at', '>=', Carbon::parse($this->start_date)->format('Y-m-d'))
-        ->where('created_at', '<=',  Carbon::parse($this->end_date)->format('Y-m-d'));
+        return Creditors::query()->where('deal_date', '>=', Carbon::parse($this->start_date)->format('Y-m-d'))
+        ->where('deal_date', '<=',  Carbon::parse($this->end_date)->format('Y-m-d'));
     }
 }
