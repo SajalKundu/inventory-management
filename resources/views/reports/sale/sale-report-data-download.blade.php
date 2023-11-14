@@ -100,11 +100,15 @@
                     <td>{{ $item->sale_price }}</td>
                     <td>{{ $item->sale_quantity }}</td>
                     <td>{{ $item->total_price }}</td>
-                    <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
+                    <td>
+                        @if($item->created_at != null)
+                            {{ Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
                 <tr>
-                <td colspan="2" style="text-align: right;">Total</td>
+                <td colspan="3" style="text-align: right;">Total</td>
                 <td>{{ $sales->sum('buy_price_price') }}</td>
                 <td>
                     {{ $sales->sum('sale_price') }}

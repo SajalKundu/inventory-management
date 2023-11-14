@@ -61,18 +61,22 @@
                                         <tbody>
                                           @foreach($creditors as $item)
                                             <tr>
-                                              <td>{{ $loop->iteration }}</td>
-                                              <td>{{ $item->name }}</td>
-                                              <td>{{ $item->company }}</td>
-                                              <td>{{ $item->amount }}</td>
-                                              <td>{{ $item->mobile }}</td>
-                                              <td>{!! $item->address !!}</td>
-                                              <td>
-                                                    {{ Carbon\Carbon::parse($item->deal_date)->format('Y-m-d') }}
-                                              </td>
-                                              <td>
-                                                    {{ Carbon\Carbon::parse($item->payment_date)->format('Y-m-d') }}
-                                              </td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->company }}</td>
+                                                <td>{{ $item->amount }}</td>
+                                                <td>{{ $item->mobile }}</td>
+                                                <td>{!! $item->address !!}</td>
+                                                <td>
+                                                    @if($item->deal_date != null)
+                                                        {{ Carbon\Carbon::parse($item->deal_date)->format('d-m-Y') }}
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($item->payment_date != null)
+                                                        {{ Carbon\Carbon::parse($item->payment_date)->format('d-m-Y') }}
+                                                    @endif
+                                                </td>
                                             </tr>
                                           @endforeach
                                         </tbody>

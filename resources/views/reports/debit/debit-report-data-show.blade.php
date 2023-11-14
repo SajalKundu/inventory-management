@@ -71,12 +71,12 @@
                                                 <td>{!! $item->address !!}</td>
                                                 <td>
                                                     @if($item->deal_date)
-                                                        {{ Carbon\Carbon::parse($item->deal_date)->format('Y-m-d') }}
+                                                        {{ Carbon\Carbon::parse($item->deal_date)->format('d-m-Y') }}
                                                     @endif
                                                 </td>
                                                 <td>
                                                     @if($item->recovery_date)
-                                                        {{ Carbon\Carbon::parse($item->recovery_date)->format('Y-m-d') }}
+                                                        {{ Carbon\Carbon::parse($item->recovery_date)->format('d-m-Y') }}
                                                     @endif
                                                 </td>
                                             </tr>

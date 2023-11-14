@@ -36,8 +36,8 @@ class DebitorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMapp
             strip_tags($debtor->details),
             $debtor->mobile,
             strip_tags($debtor->address),
-            Carbon::parse($debtor->deal_date)->format('Y-m-d'),
-            Carbon::parse($debtor->recovery_date)->format('Y-m-d'),
+            ($debtor->deal_date != null) ? Carbon::parse($debtor->deal_date)->format('d-m-Y') : '',
+            ($debtor->recovery_date != null) ? Carbon::parse($debtor->recovery_date)->format('d-m-Y') : '',
         ];
     }
 
@@ -58,7 +58,7 @@ class DebitorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMapp
 
     public function query()
     {
-        return Debtors::query()->where('created_at', '>=', Carbon::parse($this->start_date)->format('Y-m-d'))
-        ->where('created_at', '<=',  Carbon::parse($this->end_date)->format('Y-m-d'));
+        return Debtors::query()->where('deal_date', '>=', Carbon::parse($this->start_date)->format('Y-m-d'))
+        ->where('deal_date', '<=',  Carbon::parse($this->end_date)->format('Y-m-d'));
     }
 }

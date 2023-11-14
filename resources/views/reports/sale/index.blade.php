@@ -78,7 +78,7 @@
                                         <tbody>
 
                                             <tr>
-                                                <td colspan="6" class="text-center"><strong>No Data Found</strong></td>
+                                                <td colspan="7" class="text-center"><strong>No Data Found</strong></td>
                                             </tr>
 
                                         </tbody>

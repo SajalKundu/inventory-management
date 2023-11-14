@@ -16,8 +16,8 @@ class DebitReportController extends Controller
         if($request->start_date != null && $request->end_date != null){
             $start_date = Carbon::parse($request->start_date)->format('Y-m-d');
             $end_date = Carbon::parse($request->end_date)->format('Y-m-d');
-            $debtors = Debtors::where('created_at', '>=', Carbon::parse($start_date)->format('Y-m-d'))
-                ->where('created_at', '<=',  Carbon::parse($end_date)->format('Y-m-d'))->get();
+            $debtors = Debtors::where('deal_date', '>=', Carbon::parse($start_date)->format('Y-m-d'))
+                ->where('deal_date', '<=',  Carbon::parse($end_date)->format('Y-m-d'))->get();
         }else{
             $debtors = [];
             $start_date = null;
@@ -29,8 +29,8 @@ class DebitReportController extends Controller
     public function debitReportDataShow(Request $request){
         $start_date = Carbon::parse($request->start_date)->format('Y-m-d');
         $end_date = Carbon::parse($request->end_date)->format('Y-m-d');
-        $debtors = Debtors::where('created_at', '>=', Carbon::parse($start_date)->format('Y-m-d'))
-                ->where('created_at', '<=',  Carbon::parse($end_date)->format('Y-m-d'))->get();
+        $debtors = Debtors::where('deal_date', '>=', Carbon::parse($start_date)->format('Y-m-d'))
+                ->where('deal_date', '<=',  Carbon::parse($end_date)->format('Y-m-d'))->get();
         return view('reports.debit.debit-report-data-show', compact('debtors', 'start_date', 'end_date'));
     }
 
@@ -38,8 +38,8 @@ class DebitReportController extends Controller
     {
         $start_date = Carbon::parse($start_date)->format('Y-m-d');
         $end_date = Carbon::parse($end_date)->format('Y-m-d');
-        $debtors = Debtors::whereDate('created_at', '>=', Carbon::parse($start_date)->format('Y-m-d'))
-                ->whereDate('created_at', '<=',  Carbon::parse($end_date)->format('Y-m-d'))->count();
+        $debtors = Debtors::whereDate('deal_date', '>=', Carbon::parse($start_date)->format('Y-m-d'))
+                ->whereDate('deal_date', '<=',  Carbon::parse($end_date)->format('Y-m-d'))->count();
         if($debtors == 0){
             return redirect()->route('admin.report.debtor.index')->with('emsg', 'No data found');
         }
