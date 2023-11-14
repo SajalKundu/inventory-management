@@ -53,11 +53,18 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <label for="recovery_amount" class="col-sm-2 col-form-label text-lg-right">Recovery Amount</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="recovery_amount" class="form-control" id="recovery_amount" placeholder="Recovery Amount"  value="{{ $result->recovery_amount }}" required>
+                                    </div>
+                                </div>
+
+                                {{-- <div class="form-group row">
                                     <label for="email" class="col-sm-2 col-form-label text-lg-right">Email</label>
                                     <div class="col-sm-8">
                                         <input type="text" name="email" class="form-control" id="email" placeholder="Email"  value="{{ $result->email }}">
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-sm-2 col-form-label text-lg-right">Phone</label>

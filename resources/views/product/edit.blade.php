@@ -99,12 +99,12 @@
                                 </div>
                                 @if($product->image != null)
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 col-form-label text-lg-right">
                                             <input type="checkbox" name="del_image" id="del_image" value="1">
                                             <label for="del_image">Delete Image</label>
                                             &nbsp;&nbsp;&nbsp;
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 col-form-label text-lg-right">
                                             <a href="{{ asset($product->image_path.$product->image) }}" target="_blank">
                                                 <img src="{{ asset($product->image_path.$product->image) }}" alt="{{ $product->name }}" class="img-fluid">
                                             </a>
