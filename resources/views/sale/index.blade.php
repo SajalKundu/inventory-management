@@ -56,7 +56,7 @@
                                                         {{ $sale->invoice_id }}
                                                     </a>
                                                 </td>
-                                                <td>{{ $sale->customer->name }}</td>
+                                                <td>{{ $sale->customer->name ?? 'Deleted Customer' }}</td>
                                                 <td>{{ $sale->grand_total_amount }}</td>
                                                 <td>{{ $sale->advanced_amount }}</td>
                                                 <td>{{ ($sale->due_amount == null) ? 0 : $sale->due_amount }}</td>

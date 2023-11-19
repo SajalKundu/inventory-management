@@ -134,7 +134,7 @@
                                         <div class="form-group">
                                             <label for="invoice_id">Invoice Date</label>
                                             <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="invoice_date" required autofocus="off" autocomplete="off" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}" />
+                                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="invoice_date" required autofocus="off" autocomplete="off" value="{{ Carbon\Carbon::now()->format('d-m-Y') }}" />
                                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                 </div>
@@ -155,7 +155,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="mobile">Mobile No</label>
-                                            <input type="text" name="mobile" class="form-control" id="customer_mobile" placeholder="Mobile No" required readonly>
+                                            <input type="text" name="mobile" class="form-control" id="customer_mobile" placeholder="Mobile No" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -182,7 +182,7 @@
                                             <select name="product_id[]" id="product_id" serial="1" class="product_id form-control" required>
                                                 <option value="">Select Product</option>
                                                 @foreach($products as $product)
-                                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                                    <option value="{{ $product->id }}">{{ $product->name.' ('.$product->subCategory->name.')' }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -271,7 +271,7 @@
     <script>
         $(function () {
             $('#reservationdate').datepicker({
-                format: 'yyyy-mm-dd',
+                format: 'dd-mm-yyyy',
                 todayHighlight: true,
                 autoClose: true,
             });
@@ -331,7 +331,7 @@
         function addMoreRows(frm) {
             var cures = <?php echo json_encode( $products) ?>;
             rowCount ++;
-            var html = '<div class="row" id="registration'+rowCount+'"><div class="col-md-2"><div class="form-group "><select class="form-control product_id" serial="'+rowCount+'" id="product_id[]" name="product_id[]"><option value="">Select Product</option><?php foreach($products as $key=>$value){ ?><option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option> <?php } ?></select></div></div><div class="col-md-2"><div class="form-group "><input class="form-control sale_price" id="sale_price_'+rowCount+'" name="sale_price[]" type="text"  placeholder="Sale Price"></div></div><div class="col-md-2"><div class="form-group "><input class="form-control quantity" serial="'+rowCount+'" name="quantity[]" type="text" id="quantity_'+rowCount+'" placeholder="Quantity" readonly></div></div><div class="col-md-2"><div class="form-group"><input type="number" name="sale_quantity[]" serial="'+rowCount+'" class="sale_quantity form-control" id="sale_quantity_'+rowCount+'" placeholder="Sale Quantity"></div></div><div class="col-md-3"><div class="form-group "><input class="form-control product_total_price" readonly name="total_price[]" type="text" id="total_price_'+rowCount+'"></div></div><div class="col-md-1"><button type="button" class="removebtn btn btn-danger btn-sm" serial="'+rowCount+'" title="'+rowCount+'"> <i class="fas fa-minus"></i></button></div></div>';
+            var html = '<div class="row" id="registration'+rowCount+'"><div class="col-md-2"><div class="form-group "><select class="form-control product_id" serial="'+rowCount+'" id="product_id[]" name="product_id[]"><option value="">Select Product</option><?php foreach($products as $key=>$value){ ?><option value="<?php echo $value->id; ?>"><?php echo $value->name." (".$value->subCategory->name.")"; ?></option> <?php } ?></select></div></div><div class="col-md-2"><div class="form-group "><input class="form-control sale_price" id="sale_price_'+rowCount+'" name="sale_price[]" type="text"  placeholder="Sale Price"></div></div><div class="col-md-2"><div class="form-group "><input class="form-control quantity" serial="'+rowCount+'" name="quantity[]" type="text" id="quantity_'+rowCount+'" placeholder="Quantity" readonly></div></div><div class="col-md-2"><div class="form-group"><input type="number" name="sale_quantity[]" serial="'+rowCount+'" class="sale_quantity form-control" id="sale_quantity_'+rowCount+'" placeholder="Sale Quantity"></div></div><div class="col-md-3"><div class="form-group "><input class="form-control product_total_price" readonly name="total_price[]" type="text" id="total_price_'+rowCount+'"></div></div><div class="col-md-1"><button type="button" class="removebtn btn btn-danger btn-sm" serial="'+rowCount+'" title="'+rowCount+'"> <i class="fas fa-minus"></i></button></div></div>';
 
             $('#addedRows').append(html);
         }
@@ -347,8 +347,7 @@
             var serial = $(this).attr('serial');
             var sale_quantity = $(this).val();
             var stock_quantity = $("#quantity_"+serial).val();
-
-            if(sale_quantity > stock_quantity){
+            if(parseInt(sale_quantity) >= parseInt(stock_quantity)){
                 alert('Sale quantity can not be greater than stock quantity');
                 $("#sale_quantity_"+serial).val('');
                 $("#sale_quantity_"+serial).focus();
