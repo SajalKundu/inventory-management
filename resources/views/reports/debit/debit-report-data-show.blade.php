@@ -48,15 +48,15 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Sl.</th>
-                                                <th>Name</th>
-                                                <th>Company</th>
-                                                <th>Amount</th>
-                                                <th>Items</th>
-                                                <th>Mobile</th>
-                                                <th>Address</th>
-                                                <th>Deal Date</th>
-                                                <th>Recovery Date</th>
+                                                <th width="5%">Sl.</th>
+                                                <th width="10%">Name</th>
+                                                <th width="10%">Company</th>
+                                                <th width="10%">Amount</th>
+                                                <th width="20%">Items</th>
+                                                <th width="10%">Mobile</th>
+                                                <th width="15%">Address</th>
+                                                <th width="10%">Deal Date</th>
+                                                <th width="10%">Recovery Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>

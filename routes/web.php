@@ -78,18 +78,7 @@ Route::group([
 
     });
 
-    Route::controller(CreditorsController::class)->prefix('creditors')->name('creditors.')->group(function () {
 
-        Route::get('/', 'index')->name('index');
-        Route::get('/add', 'Add')->name('Add');
-        Route::post('store', 'store')->name('store');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-        Route::get('/delete/{id}', 'destroy')->name('destroy');
-        Route::get('/status/{id}/{value}/{status}', 'sliderStatus')->name('Status');
-
-    });
 
     Route::prefix('contacts')->name('contacts.')->group(function(){
 
@@ -110,24 +99,39 @@ Route::group([
 
     });
 
-    Route::controller(DebtorsController::class)->prefix('debtors')->name('debtors.')->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/add', 'Add')->name('Add');
-        Route::post('store', 'store')->name('store');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-        Route::get('/delete/{id}', 'destroy')->name('destroy');
 
-    });
-    Route::controller(CustomerController::class)->prefix('customer')->name('admin.customer.')->group(function(){
-        Route::get('/', 'index')->name('index');
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-        Route::get('edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-        Route::get('delete/{id}', 'destroy')->name('destroy');
-        Route::get('change-status/{id}/{status}', 'changeStatus')->name('change-status');
+    Route::prefix('customer/')->group(function(){
+        Route::controller(CustomerController::class)->name('admin.customer.')->group(function(){
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::get('delete/{id}', 'destroy')->name('destroy');
+            Route::get('change-status/{id}/{status}', 'changeStatus')->name('change-status');
+        });
+        Route::controller(DebtorsController::class)->prefix('debtors')->name('debtors.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/add', 'Add')->name('Add');
+            Route::post('store', 'store')->name('store');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::get('/delete/{id}', 'destroy')->name('destroy');
+
+        });
+
+        Route::controller(CreditorsController::class)->prefix('creditors')->name('creditors.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+            Route::get('/add', 'Add')->name('Add');
+            Route::post('store', 'store')->name('store');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::get('/delete/{id}', 'destroy')->name('destroy');
+
+        });
     });
 
     Route::controller(CategoryController::class)->prefix('category')->name('admin.category.')->group(function(){

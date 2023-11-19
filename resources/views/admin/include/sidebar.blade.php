@@ -13,6 +13,15 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
+                    <a href="{{ url('/') }}"
+                        class="nav-link @if (request()->is('admin/dashboard*')) active @endif">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Website
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link @if (request()->is('admin/slider*')) active @endif">
                         <i class="nav-icon fas fa-home"></i>
                         <p> Home</p><i class="fas fa-angle-left right"></i>
@@ -36,14 +45,37 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.customer.index') }}"
-                        class="nav-link @if (request()->is('admin/customer*')) active @endif">
+                    <a href="#" class="nav-link @if (request()->is('admin/customer*')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Customer
-                        </p>
+                        <p> Customer</p><i class="fas fa-angle-left right"></i>
                     </a>
+                    <ul class="nav nav-treeview" >
+
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.customer.index') }}" class="nav-link  @if (request()->is('admin/customer')) active @endif">
+                                <i class="fas fa-angle-right nav-icon"></i>
+                                <p>Customer Data</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('creditors.index') }}" class="nav-link  @if (request()->is('admin/customer/creditors')) active @endif">
+                                <i class="fas fa-angle-right nav-icon"></i>
+                                <p>Creditors</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('debtors.index') }}" class="nav-link  @if (request()->is('admin/customer/debtors')) active @endif">
+                                <i class="fas fa-angle-right nav-icon"></i>
+                                <p>Debtors</p>
+                            </a>
+                        </li>
+
+                    </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}"
                         class="nav-link @if (request()->is('admin/category*') || request()->is('admin/sub-category*')) active @endif">

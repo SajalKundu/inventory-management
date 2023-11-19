@@ -46,14 +46,14 @@
                                     <table class="table table-bordered">
                                         <thead>
                                           <tr>
-                                            <th>SL.</th>
-                                            <th>Customer</th>
-                                            <th>Description</th>
-                                            <th>Buy Price</th>
-                                            <th>Sale Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total Price</th>
-                                            <th>Sale Date</th>
+                                            <th width="5%">SL.</th>
+                                            <th width="20%">Customer</th>
+                                            <th width="25%">Description</th>
+                                            <th width="10%">Buy Price</th>
+                                            <th width="10%">Sale Price</th>
+                                            <th width="10%">Quantity</th>
+                                            <th width="10%">Total Price</th>
+                                            <th width="10%">Sale Date</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -73,7 +73,7 @@
                                                 </td>
                                             </tr>
                                           @endforeach
-                                          <tr>
+                                          {{-- <tr>
                                             <td colspan="3" style="text-align: right;">Total</td>
                                             <td>{{ $sales->sum('buy_price_price') }}</td>
                                             <td>
@@ -84,7 +84,7 @@
                                                 {{ $sales->sum('total_price') }}
                                             </td>
                                             <td></td>
-                                          </tr>
+                                          </tr> --}}
 
                                         </tbody>
                                     </table>

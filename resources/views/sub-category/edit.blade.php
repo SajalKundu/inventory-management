@@ -20,6 +20,9 @@
                                     <i class="fas fa-arrow-left"></i>
                                     Back
                                 </a>
+                                <a href="{{ route('admin.category.index') }}" >
+                                    {{ $category->name }}
+                                </a> >>
                                 Edit Sub Category
                             </h3>
                         </div>

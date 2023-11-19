@@ -10,6 +10,15 @@
     <!-- Main content -->
     <section class="content">
         <div class="container">
+            @if ($errors->any())
+                    <div class="col-sm-12 text-center">
+                        <br>
+                        @foreach ($errors->all() as $error)
+                            <div style="color: red;">{{ $error }}</div>
+                        @endforeach
+                        <br>
+                    </div>
+                @endif
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mt-2">
@@ -81,7 +90,7 @@
 
                                 <div class="form-group row">
                                     <label for="details" class="col-sm-2 col-form-label text-lg-right">Details</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-6">
                                         <textarea type="text" class="form-control" id="details" name="details" rows="3">{{  $result->details }}</textarea>
                                         {{-- <script type="text/javascript">
                                             CKEDITOR.replace("details", {
@@ -95,7 +104,7 @@
 
                                 <div class="form-group row">
                                     <label for="address" class="col-sm-2 col-form-label text-lg-right">Address</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-6">
                                         <textarea type="text" class="form-control" id="address" name="address" rows="3">{{  $result->address }}</textarea>
                                         {{-- <script type="text/javascript">
                                             CKEDITOR.replace("address", {

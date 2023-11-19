@@ -107,7 +107,7 @@
                     </td>
                 </tr>
                 @endforeach
-                <tr>
+                {{-- <tr>
                 <td colspan="3" style="text-align: right;">Total</td>
                 <td>{{ $sales->sum('buy_price_price') }}</td>
                 <td>
@@ -118,7 +118,7 @@
                     {{ $sales->sum('total_price') }}
                 </td>
                 <td></td>
-                </tr>
+                </tr> --}}
 
             </tbody>
         </table>

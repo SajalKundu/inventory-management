@@ -35,7 +35,7 @@ class CreditorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMap
             $creditor->amount,
             $creditor->email,
             $creditor->mobile,
-            strip_tags($creditor->address),
+            strip_tags($creditor->details),
             ($creditor->deal_date != null) ? Carbon::parse($creditor->deal_date)->format('d-m-Y') : '',
             ($creditor->payment_date != null) ? Carbon::parse($creditor->payment_date)->format('d-m-Y') : '',
         ];
@@ -50,7 +50,7 @@ class CreditorExport implements FromQuery, ShouldAutoSize, WithHeadings, WithMap
             'Amount',
             'Email',
             'Mobile',
-            'Address',
+            'Details',
             'Deal Date',
             'Payment Date',
         ];

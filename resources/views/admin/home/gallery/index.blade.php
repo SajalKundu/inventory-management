@@ -26,9 +26,9 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="width: 10%">SL</th>
-                                        <th style="width: 10%">Numeric Name</th>
-                                        <th style="width: 30%">Title</th>
+                                        {{-- <th style="width: 10%">SL</th> --}}
+                                        <th style="width: 15%">Numeric Name</th>
+                                        <th style="width: 35%">Title</th>
                                         <th style="text-align: center; width: 20%">Image</th>
                                         <th style="text-align: center; width: 10%">Status</th>
                                         <th style="text-align: center;width: 10%">Edit</th>
@@ -38,7 +38,7 @@
                                 <tbody>
                                     @foreach ($gallery as $result)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        {{-- <td>{{ $loop->iteration }}</td> --}}
                                         <td>{{ $result->rank }}</td>
 							            <td>{{ $result->title }}</td>
 
