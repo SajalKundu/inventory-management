@@ -41,7 +41,7 @@ class SaleController extends Controller
         $request->validate([
             'invoice_date' => 'required|date',
             'customer_id' => 'required|exists:customers,id',
-            'mobile' => 'nullable|string|min:11|max:11',
+            'mobile' => 'nullable|string',
             'customer_address' => 'nullable|string',
             'grand_total_amount' => 'required|numeric',
             'advanced_amount' => 'nullable|numeric',

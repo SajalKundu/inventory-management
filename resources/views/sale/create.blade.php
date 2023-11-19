@@ -155,7 +155,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="mobile">Mobile No</label>
-                                            <input type="text" name="mobile" class="form-control" id="customer_mobile" placeholder="Mobile No" required>
+                                            <input type="text" name="mobile" class="form-control" id="customer_mobile" placeholder="Mobile No">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -345,9 +345,9 @@
         var sum = 0;
         $(document).on('keyup', '.sale_quantity', function(){
             var serial = $(this).attr('serial');
-            var sale_quantity = $(this).val();
-            var stock_quantity = $("#quantity_"+serial).val();
-            if(parseInt(sale_quantity) >= parseInt(stock_quantity)){
+            var sale_quantity = parseInt($(this).val());
+            var stock_quantity = parseInt($("#quantity_"+serial).val());
+            if(stock_quantity < sale_quantity){
                 alert('Sale quantity can not be greater than stock quantity');
                 $("#sale_quantity_"+serial).val('');
                 $("#sale_quantity_"+serial).focus();

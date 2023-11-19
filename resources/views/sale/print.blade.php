@@ -49,8 +49,8 @@
       </div>
       <div class="col-md-3 col-xs-3">
         <label>Date</label>
-        <div class="input-group date" data-date-format="dd.mm.yyyy">
-          <input  type="text" class="form-control" placeholder="dd.mm.yyyy" value="{{ Carbon\Carbon::now()->format('d.m.Y') }}">
+        <div class="input-group date" data-date-format="dd-mm-yyyy">
+          <input  type="text" class="form-control" placeholder="dd-mm-yyyy" value="{{ ($invoice_info->invoice_create_date != null) ? Carbon\Carbon::parse($invoice_info->invoice_create_date)->format('d-m-Y') : Carbon\Carbon::now()->format('d-m-Y') }}">
           <div class="input-group-addon" >
             <span class="glyphicon glyphicon-th"></span>
           </div>
