@@ -48,14 +48,14 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Sl.</th>
-                                                <th>Name</th>
-                                                <th>Company</th>
-                                                <th>Amount</th>
-                                                <th>Mobile</th>
-                                                <th>Address</th>
-                                                <th>Deal Date</th>
-                                                <th>Payment Date</th>
+                                                <th width="5%">Sl.</th>
+                                                <th width="10%">Name</th>
+                                                <th width="15%">Company</th>
+                                                <th width="15%">Amount</th>
+                                                <th width="10%">Mobile</th>
+                                                <th width="20%">Details</th>
+                                                <th width="10%">Deal Date</th>
+                                                <th width="15%">Payment Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -66,7 +66,7 @@
                                                 <td>{{ $item->company }}</td>
                                                 <td>{{ $item->amount }}</td>
                                                 <td>{{ $item->mobile }}</td>
-                                                <td>{!! $item->address !!}</td>
+                                                <td>{!! $item->details !!}</td>
                                                 <td>
                                                     @if($item->deal_date != null)
                                                         {{ Carbon\Carbon::parse($item->deal_date)->format('d-m-Y') }}

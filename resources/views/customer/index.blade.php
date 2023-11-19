@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <div class="card mt-2">
                         <div class="card-header">
-                            <h3 class="card-title">Customer > <a href="{{ route('creditors.index') }}">Creditors</a> > <a href="{{ route('debtors.index') }}">Debtors</a></h3>
+                            <h3 class="card-title">Customer </h3>
                             <div class="card-tools">
                                 <a href="{{ route('admin.customer.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add New</a>
                             </div>

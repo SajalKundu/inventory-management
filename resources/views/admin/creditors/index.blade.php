@@ -25,12 +25,12 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">SL</th>
-                                        <th width="10%">Name</th>
-                                        <th width="15%">Company</th>
+                                        <th width="15%">Name</th>
+                                        <th width="20%">Company</th>
                                         <th width="10%">Amount</th>
                                         <th width="5%" style="text-align: center;">Image/File</th>
-                                        <th width="20%" style="text-align: center;">Deal Date</th>
-                                        <th width="20%" style="text-align: center;">Paid on</th>
+                                        <th width="15%" style="text-align: center;">Deal Date</th>
+                                        <th width="15%" style="text-align: center;">Paid on</th>
                                         <th width="5%" style="text-align: center;">View</th>
                                         <th width="5%" style="text-align: center;">Edit</th>
                                         <th width="5%" style="text-align: center;">Delete</th>

@@ -24,19 +24,19 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>SL</th>
-                                        <th>Rank</th>
-                                        <th>Title</th>
-                                        <th style="text-align: center;">Image</th>
-                                        <th style="text-align: center;">Status</th>
-                                        <th style="text-align: center;">Edit</th>
-                                        <th style="text-align: center;">Delete</th>
+                                        {{-- <th>SL</th> --}}
+                                        <th width="5%">Rank</th>
+                                        <th width="50%">Title</th>
+                                        <th width="15%" style="text-align: center;">Image</th>
+                                        <th width="10%" style="text-align: center;">Status</th>
+                                        <th width="10%" style="text-align: center;">Edit</th>
+                                        <th  width="10%"style="text-align: center;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($sliders as $slider)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        {{-- <td>{{ $loop->iteration }}</td> --}}
                                         <td>{{ $slider->rank }}</td>
 							            <td>{{ $slider->title }}</td>
 

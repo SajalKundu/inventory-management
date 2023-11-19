@@ -28,10 +28,10 @@ class DebtorsController extends Controller
             'amount'      =>'required',
             'phone'       =>'nullable',
             'email'       =>'nullable',
-            'address'     =>'required',
+            'address'     =>'nullable',
             'file'        =>'nullable|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png,svg,zib,rar,zip',
             'deal_date'   =>'required',
-           'recovery_date'=>'required',
+           'recovery_date'=>'nullable',
         ]);
 
         $path = 'assets/debtors/';
@@ -89,7 +89,7 @@ class DebtorsController extends Controller
             'amount'      =>'required',
             'phone'       =>'nullable',
             'email'       =>'nullable',
-            'address'     =>'required',
+            'address'     =>'nullable',
             'details'     =>'nullable',
             'file'        =>'nullable|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png,svg,zib,rar,zip',
             'deal_date'   =>'required',
